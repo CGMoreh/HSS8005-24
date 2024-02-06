@@ -11,7 +11,7 @@
     "href": "plan8.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
-    "text": "Week\nTW\nDate\nTopic\nInfo\nNotes\nLecture\nLabs\nHandouts\n\n\n\n\n\n22\n29 January\nIntroduction\n\n\n\n\n\n\n\nWeek 1\n22\n30 January\nMind your language  A brief introduction to R, RStudio, and other tools of the trade\n\n\n\n\n  \n\n\nWeek 2\n23\n06 February\nEscaping Flatland  Linear models and their limitations\n\n  \n  \n  \n  \n\n\nWeek 3\n24\n13 February\nCategories  Logistic regression and other generalised linear models\n\n  \n  \n  \n  \n\n\nWeek 4\n25\n20 February\nInteractions  Estimating, graphing and interpreting interaction effects\n\n  \n  \n  \n  \n\n\nWeek 5\n26\n27 February\nPaths to collision  Considerations for causal analysis\n\n  \n  \n  \n  \n\n\nWeek 6\n27\n05 March\nHierarchies  Multilevel models\n\n  \n  \n  \n  \n\n\nWeek 7\n28\n12 March\nTemporalities  Time series, panel and longitudinal data analysis\n\n  \n  \n  \n  \n\n\nWeek 8\n29\n19 March\nStudy design  Simulation-based power analysis for study design\n\n  \n  \n  \n  \n\n\n\n29\n22 March\nConclusions"
+    "text": "Week\nTW\nDate\nTopic\nInfo\nNotes\nLecture\nLabs\nHandouts\n\n\n\n\n\n22\n29 January\nIntroduction\n\n\n\n\n\n\n\nWeek 1\n22\n30 January\nMind your language  A brief introduction to R, RStudio, and other tools of the trade\n\n\n\n\n\n\n\nWeek 2\n23\n06 February\nEscaping Flatland  Linear models and their limitations\n\n  \n  \n\n\n\n\nWeek 3\n24\n13 February\nCategories  Logistic regression and other generalised linear models\n\n  \n  \n  \n  \n\n\nWeek 4\n25\n20 February\nInteractions  Estimating, graphing and interpreting interaction effects\n\n  \n  \n  \n  \n\n\nWeek 5\n26\n27 February\nPaths to collision  Considerations for causal analysis\n\n  \n  \n  \n  \n\n\nWeek 6\n27\n05 March\nHierarchies  Multilevel models\n\n  \n  \n  \n  \n\n\nWeek 7\n28\n12 March\nTemporalities  Time series, panel and longitudinal data analysis\n\n  \n  \n  \n  \n\n\nWeek 8\n29\n19 March\nStudy design  Simulation-based power analysis for study design\n\n  \n  \n  \n  \n\n\n\n29\n22 March\nConclusions"
   },
   {
     "objectID": "materials/worksheets/worksheets_w01.html",
@@ -126,7 +126,7 @@
     "href": "materials/worksheets/worksheets_w01.html#exercise-6-data-frame-operations-in-a-quarto-document",
     "title": "Week 1 Worksheet Exercises",
     "section": "Exercise 6: Data frame operations in a Quarto document",
-    "text": "Exercise 6: Data frame operations in a Quarto document\nIn this task, let’s start using the other document we created, the .qmd file. This file format allows you to combine both longer written text (such as detailed descriptions of your data analysis process or the main body of a report or journal article) with code chunks. To get you started using this file format, read Chapter 3.2. in TSD. Below we will focus only on the code chunks.\nCompared to what you have done in the R script, in the main Quarto document a # refers to a heading level rather than a comment. If you want to include a code chunk, you can click on the +C tab in the upper-right corner of the .qmd document’s toolbar, or use the keyboard shortcut Ctrl+Alt+i. In the code chunk you would write in the same way as you did in the R script (they are basically mini-scripts). Within a code-chunk, therefore, the # still refers to a comment.\nTo execute a command withing a code chunk, you can either run each line/selection separately using Ctrl+Enter as in the R script, or you can run the entire content of the chunk with the green right-pointing triangle-arrow in the upper-right corner of the chunk.\nLet’s continue doing some operations on the mtcars dataset we looked at earlier, this time using some useful tidyverse functions.\nLet’s subset the data frame by selecting certain rows or columns. In tidyverse, you can do this with the filter() function for selecting rows and the select() function for selecting columns. Here we pipe the selections into head() to show the first few rows. You could also use the dplyr::slice_head function\n\nmtcars |&gt;\n  select(mpg, wt) |&gt;\n  head()\n\nTo select the cars with eight cylinders:\n\nmtcars |&gt;\n  filter(cyl == 8)\n\nWe can use the slice() function. For example, to get the 5th through 10th rows:\n\nmtcars |&gt;\n  slice(5:10)\n\nIf we pass a vector of integers to the select function, we will get the variables corresponding to those column positions. So to get the first through third columns:\n\nmtcars |&gt;\n  select(1:3) |&gt;\n  head()\n\nIf you call summary() a data frame, it produces applies the vector version of the summary command to each column:\n\nsummary(mtcars)\n\nThese few tasks should be enough to get you started with R and RStudio.\nComplete the R for Social Scientists online training too sometime during the week.\nFrom next week we will begin working actively with real data and address specific data management challenges that arise from there.\nThose of you who have worked on the advanced user exercise can check some optional solutions below.\n\n\n\n\n\n\nSolutions to the advanced exercise: leap year functions\n\n\n\n\n\n\nleap_year_v1 &lt;- function(year1,year2) {\n    year &lt;- year1:year2\n    year[(year%%4==0 & year%%100!=0) | year%%400==0]\n}\n\n\nleap_year_v2 &lt;- function(year1,year2){\n    vector&lt;-c()\n    for(year in year1:year2){\n        if((year %% 4 == 0) & (year %% 100 != 0) | (year  %% 400 == 0)){\n            vector&lt;-c(vector,year)\n        }}\n    return(vector)}\n\n\nleap_year_v3 &lt;- function(year1,year2){\n    #make a vector of all years\n    year&lt;-year1:year2\n    #find the leap years (TRUE/FALSE)\n    leaps&lt;-ifelse((year %% 4 == 0) & (year %% 100 != 0) | (year  %% 400 == 0), TRUE, FALSE)\n    year[leaps] #return the leap years\n}",
+    "text": "Exercise 6: Data frame operations in a Quarto document\nIn this task, let’s start using the other document we created, the .qmd file. This file format allows you to combine both longer written text (such as detailed descriptions of your data analysis process or the main body of a report or journal article) with code chunks. To get you started using this file format, read Chapter 3.2. in TSD. Below we will focus only on the code chunks.\nCompared to what you have done in the R script, in the main Quarto document a # refers to a heading level rather than a comment. If you want to include a code chunk, you can click on the +C tab in the upper-right corner of the .qmd document’s toolbar, or use the keyboard shortcut Ctrl+Alt+i. In the code chunk you would write in the same way as you did in the R script (they are basically mini-scripts). Within a code-chunk, therefore, the # still refers to a comment.\nTo execute a command withing a code chunk, you can either run each line/selection separately using Ctrl+Enter as in the R script, or you can run the entire content of the chunk with the green right-pointing triangle-arrow in the upper-right corner of the chunk.\nLet’s continue doing some operations on the mtcars dataset we looked at earlier, this time using some useful tidyverse functions.\nLet’s subset the data frame by selecting certain rows or columns. In tidyverse, you can do this with the filter() function for selecting rows and the select() function for selecting columns. Here we pipe the selections into head() to show the first few rows. You could also use the dplyr::slice_head function\n\nmtcars |&gt;\n  select(mpg, wt) |&gt;\n  head()\n\nTo select the cars with eight cylinders:\n\nmtcars |&gt;\n  filter(cyl == 8)\n\nWe can use the slice() function. For example, to get the 5th through 10th rows:\n\nmtcars |&gt;\n  slice(5:10)\n\nIf we pass a vector of integers to the select function, we will get the variables corresponding to those column positions. So to get the first through third columns:\n\nmtcars |&gt;\n  select(1:3) |&gt;\n  head()\n\nIf you call summary() a data frame, it produces applies the vector version of the summary command to each column:\n\nsummary(mtcars)\n\nThese few tasks should be enough to get you started with R and RStudio.\nIf this was your first encounter with R, you can complete the R for Social Scientists online training too sometime during the week.\nFrom next week we will begin working actively with real data and address specific data management challenges that arise from there.\nThose of you who have worked on the advanced user exercise can check some optional solutions below.\n\n\n\n\n\n\nSolutions to the advanced exercise: leap year functions\n\n\n\n\n\n\nleap_year_v1 &lt;- function(year1,year2) {\n    year &lt;- year1:year2\n    year[(year%%4==0 & year%%100!=0) | year%%400==0]\n}\n\n\nleap_year_v2 &lt;- function(year1,year2){\n    vector&lt;-c()\n    for(year in year1:year2){\n        if((year %% 4 == 0) & (year %% 100 != 0) | (year  %% 400 == 0)){\n            vector&lt;-c(vector,year)\n        }}\n    return(vector)}\n\n\nleap_year_v3 &lt;- function(year1,year2){\n    #make a vector of all years\n    year&lt;-year1:year2\n    #find the leap years (TRUE/FALSE)\n    leaps&lt;-ifelse((year %% 4 == 0) & (year %% 100 != 0) | (year  %% 400 == 0), TRUE, FALSE)\n    year[leaps] #return the leap years\n}",
     "crumbs": [
       "Materials",
       "Week 1",
@@ -253,57 +253,9 @@
     "text": "Large numbers\n\n\nBernoulli’s solution, more technically:  For any given \\(\\epsilon\\) &gt; 0 and any \\(s\\) &gt; 0, there is a sample size \\(n\\) such that, with \\(w\\) being the number of white pebbles counted in the sample and \\(f\\) being the true fraction of white pebbles in the urn, the probability of \\(w/n\\) falling between \\(f − \\epsilon\\) and \\(f + \\epsilon\\) is greater than \\(1 − s\\).\nthe fraction \\(w/n\\) is the ratio of white to total pebbles we observe in our sample\n\\(\\epsilon\\) (epsilon) captures the fact that we may not see the true urn ratio exactly thanks to random variation in the sample; larger samples help assure that we get closer to the true value, but uncertainty always remains\n\\(s\\) reflects just how sure we want to be; for example, set \\(s\\) = 0.01 and be 99% percent sure.\nmoral certainty as distinct from absolute certainty of the kind logical deduction provides"
   },
   {
-    "objectID": "materials/slides-frame/slides-frame_w08.html",
-    "href": "materials/slides-frame/slides-frame_w08.html",
-    "title": "Week 8  Study design",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 8",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w06.html",
-    "href": "materials/slides-frame/slides-frame_w06.html",
-    "title": "Week 6  Hierarchies",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 6",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w04.html",
-    "href": "materials/slides-frame/slides-frame_w04.html",
-    "title": "Week 4  Interactions",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 4",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w02.html",
-    "href": "materials/slides-frame/slides-frame_w02.html",
+    "objectID": "materials/slides-frame/slide-frame_w02.html",
+    "href": "materials/slides-frame/slide-frame_w02.html",
     "title": "Week 2  Escaping Flatland",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 2",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w00.html",
-    "href": "materials/slides-frame/slides-frame_w00.html",
-    "title": "Week 1  Introduction",
     "section": "",
     "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)"
   },
@@ -404,16 +356,18 @@
     ]
   },
   {
-    "objectID": "materials/notes/notes_w01.html#using-the-here-package",
-    "href": "materials/notes/notes_w01.html#using-the-here-package",
-    "title": "Week 1 Worksheet Notes",
-    "section": "Using the {here} package",
-    "text": "Using the {here} package\nWorking with paths, folders, directories in a sustainable and robust way can be a challenge. The {here} package provides some useful options if you are working within R project directories. By loading the here library, you establish the working directory to be the root folder of your R project (i.e. the folder where the .Rproj file is located), and you can easily construct paths to any file within that project by listing the folders that contain it relative to the project root.\nYou can read more about the package in the “R for Social Scientists” course.",
-    "crumbs": [
-      "Materials",
-      "Week 1",
-      "Notes"
-    ]
+    "objectID": "materials/notes/draft-notes_w02.html",
+    "href": "materials/notes/draft-notes_w02.html",
+    "title": "Week 2 Worksheet Notes",
+    "section": "",
+    "text": "So far we have looked at toy datasets included with R itself. In your own research - and in later weeks in this module - you will be using real data. But how do we get these data into RStudio? It depends, of course, on the format of the data you need to import.\nR’s native data format carries the extension .rds. The base-R function to load .rds datasets into R is readRDS().\nBut we can import data stored in other formats too, such as the generic comma separated values (.csv) format or the various formats used by other proprietary statistical analysis packages (e.g. SPSS, Stata, SAS).\nMany social science surveys are distributed in one of the proprietary formats mentioned, because those have been designed specifically to manage “labelled” data (i.e. variables that need to have longer descriptive labels and consist of many categorical variables whose categories/levels only make sense if they are themselves meaningfully “labelled”).\nFor example, the The World Values Survey (WVS) provides the greatest number of options for data download formats, including .rds and even .RData. However, most other large-scale cross-national surveys provide their data either in .csv, .sav (SPSS) or .dta (Stata).\nWhen you have the option, my advice is to download the .sav (SPSS) version of the data whenever possible, just because SPSS allows the longest variable and value labels and therefore that data labelling may be the most complete. It’s then easier to transport that to R than having to type everything in from a survey questionnaire when that information is needed.\nTraditionally, one of the most severe shortcomings of R compared to other proprietary statistical analysis packages has been it’s very limited and cumbersome support of labelling. This has changed significantly over the past few years. The suite of packages developed or contributed to by sociologist Daniel Lüdecke of the University of Hamburg are among the best available tools for this purpose - including the packages making up the {easystats} ecosystem.\nAs an example, let’s import a dataset from the latest wave of the World Values Survey (Wave 7). Two versions of the dataset are available via the module website (.rds and .sav), but you can download the data in other formats directly from the survey website: https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp.\nDownload the .rds version of the data file form here: https://cgmoreh.github.io/HSS8005-24/data/wvs7.rds\n\n\n\n\n\n\nImportant\n\n\n\nMake sure to download the file in the same folder where your R script/Quarto file is located, so you can import it easily, without complications cause by directory paths (see below)\n\n\nOnce the dataset is downloaded, you can import it into R. Because the downloaded data file is in the .rds format, you can navigate to the file either from within RStudio’s Files pane, or manually in Windows Explorer, and double-click the file to open. However, this is not a recommended way of opening a file, because you want to have a record of the action in your R script for the future.\nYou can load datasets saved in the .rds format using the readRDS() command. If your dataset is in another format, you can check out the {readr} package (for rectangular data such as .csv (comma separated values) or .tsv (tab separated values)), {readxl} (for Excel data), and {sjlabelled} (for SPSS, Stata and SAS formats).\nThe more generic function data_read() from {easystats}’s {datawizard} package loads data from various formats based on the source files extension, including files from internet sources or compressed files. It relies on the {rio} package, which provides similar functionality.\n\n\n\n\n\n\nNote\n\n\n\nIt’s important to note that by default the data_read() function assumes that numeric variables where all values have a value label are categorical and will convert them into factors. That means that all the numeric “values” will be replaced by the “value labels” (e.g. 1=“Yes”/ 2=“No” will become simply “Yes”/“No”). This is usually a reasonable default behaviour, because the majority of functions in R do not handle “value labels” and working with textual (character string) values can be more explicit. However, this may be less appropriate when the dataset contains many long ordered variables (such as 0-10 scale items), as we will most likely want to treat such variables as numeric in statistical models. To cancel this default behaviour, we can add the additional argument convert_factors = FALSE. This is also the format that gets imported when using readRDS(). However, most of the common tabulation and graphing functions will not show the category “labels” in the output either, and for that purpose having variables “converted to factors” (with the original “Values” overwritten by the “Value labels”) may be a better option. Below we will import the data with factors converted, as we will focus on tabulation and plotting.\n\n\nIf you have saved the dataset into the same folder where your analysis script/Quarto file lives, you can import it by specifying just the name of the dataset. If it’s in a sub-folder or a different location on the computer, you need to include a full path to the dataset, like in the example below:\n\nwvs7data &lt;- readRDS(\"D:/HSS8005/MyData/wvs7.rds\")\n\nIn the code above, I am assigning (with the assignment operator &lt;-) the data to an object I called “wvs7data”, but I could have given it any other name as long as it follows R’s naming conventions (no spaces, avoid special characters; see also recommended naming strategies in the tidyverse style guide). The object will appear in the Environment tab (on the bottom right pane).\n\n\n\n\n\n\nWarning\n\n\n\nWorking with folders and paths\nIf the data file is not in the folder where you main script (the one that does the importing) is, you will need to specify either a relative path from the script to the data file, or an absolute path from the home/working directory.\nCopy/pasting paths on Windows computers\nAn easy way to get the path to the data file is to navigate there on your computer, copy the path, and paste it into your R script. However, there are some complications with this procedure when using a Windows PC. My path above would have copied as D:\\HSS8005\\MyData\\wvs7.rds, but R does not recognise back-slashes as path elements because in R the backslash has a special meaning. You must manually replace backslashes with either forward slashes or double-backslashes (D:\\\\HSS8005\\\\MyData\\\\wvs7.rds).\nAnother option is to use the function readClipboard(), which pastes into R whatever text you have on your clipboard (after copying it) using double backslashes. For example, you can copy a path to the folder where the data is located, then add the filename to the end of the text string using the paste0() function to get a working path to the file you want to load.\nYou can check:\n\n# First, copy the path to your data folder on your computer\n# Check the output:\n\npaste0(readClipboard(), \"/wvs7.rds\")\n\nThe file in the path can then be imported as normal:\n\nwvs7data &lt;- data_read(paste0(readClipboard(), \"/wvs7.rds\"))\n\nUsing the {here} package\nWorking with paths, folders, directories in a sustainable and robust way can be a challenge. The {here} package provides some useful options if you are working within R project directories. By loading the here library, you establish the working directory to be the root folder of your R project (i.e. the folder where the .Rproj file is located), and you can easily construct paths to any file within that project by listing the folders that contain it relative to the project root. This works similarly on all operating systems, and it’s as easy as:\n\nlibrary(here)\n\nwvs7data &lt;- readRDS(here(\"HSS8005\", \"MyData\", \"wvs7.rds\"))\n\nYou can read more about the package in the “R for Social Scientists” course.\n\n\nWe can look at the dataset object in the Environment pane. If we click on the blue button with the white arrow before the name of the object, a list of variables and other information about them will roll down. If we click on the object’s name or info, the dataset will open in the Sources pane, just next to the R script file. This is equivalent to having run the following command:\n\nView(wvs7data)    \n\nNote the capital “V”; R is case-sensitive, so always pay attention; view(wvs7data) won’t work.\nYou can explore the dataset a bit. Only the first 50 columns (i.e. variables) are displayed, to see the next 50 you can click on arrow (&gt;) in the dataset window’s toolbar. Once you’ve had a quick look, you can close that view or return to the R script."
+  },
+  {
+    "objectID": "materials/notes/draft-notes_w02.html#importing-external-data-into-rstudio",
+    "href": "materials/notes/draft-notes_w02.html#importing-external-data-into-rstudio",
+    "title": "Week 2 Worksheet Notes",
+    "section": "",
+    "text": "So far we have looked at toy datasets included with R itself. In your own research - and in later weeks in this module - you will be using real data. But how do we get these data into RStudio? It depends, of course, on the format of the data you need to import.\nR’s native data format carries the extension .rds. The base-R function to load .rds datasets into R is readRDS().\nBut we can import data stored in other formats too, such as the generic comma separated values (.csv) format or the various formats used by other proprietary statistical analysis packages (e.g. SPSS, Stata, SAS).\nMany social science surveys are distributed in one of the proprietary formats mentioned, because those have been designed specifically to manage “labelled” data (i.e. variables that need to have longer descriptive labels and consist of many categorical variables whose categories/levels only make sense if they are themselves meaningfully “labelled”).\nFor example, the The World Values Survey (WVS) provides the greatest number of options for data download formats, including .rds and even .RData. However, most other large-scale cross-national surveys provide their data either in .csv, .sav (SPSS) or .dta (Stata).\nWhen you have the option, my advice is to download the .sav (SPSS) version of the data whenever possible, just because SPSS allows the longest variable and value labels and therefore that data labelling may be the most complete. It’s then easier to transport that to R than having to type everything in from a survey questionnaire when that information is needed.\nTraditionally, one of the most severe shortcomings of R compared to other proprietary statistical analysis packages has been it’s very limited and cumbersome support of labelling. This has changed significantly over the past few years. The suite of packages developed or contributed to by sociologist Daniel Lüdecke of the University of Hamburg are among the best available tools for this purpose - including the packages making up the {easystats} ecosystem.\nAs an example, let’s import a dataset from the latest wave of the World Values Survey (Wave 7). Two versions of the dataset are available via the module website (.rds and .sav), but you can download the data in other formats directly from the survey website: https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp.\nDownload the .rds version of the data file form here: https://cgmoreh.github.io/HSS8005-24/data/wvs7.rds\n\n\n\n\n\n\nImportant\n\n\n\nMake sure to download the file in the same folder where your R script/Quarto file is located, so you can import it easily, without complications cause by directory paths (see below)\n\n\nOnce the dataset is downloaded, you can import it into R. Because the downloaded data file is in the .rds format, you can navigate to the file either from within RStudio’s Files pane, or manually in Windows Explorer, and double-click the file to open. However, this is not a recommended way of opening a file, because you want to have a record of the action in your R script for the future.\nYou can load datasets saved in the .rds format using the readRDS() command. If your dataset is in another format, you can check out the {readr} package (for rectangular data such as .csv (comma separated values) or .tsv (tab separated values)), {readxl} (for Excel data), and {sjlabelled} (for SPSS, Stata and SAS formats).\nThe more generic function data_read() from {easystats}’s {datawizard} package loads data from various formats based on the source files extension, including files from internet sources or compressed files. It relies on the {rio} package, which provides similar functionality.\n\n\n\n\n\n\nNote\n\n\n\nIt’s important to note that by default the data_read() function assumes that numeric variables where all values have a value label are categorical and will convert them into factors. That means that all the numeric “values” will be replaced by the “value labels” (e.g. 1=“Yes”/ 2=“No” will become simply “Yes”/“No”). This is usually a reasonable default behaviour, because the majority of functions in R do not handle “value labels” and working with textual (character string) values can be more explicit. However, this may be less appropriate when the dataset contains many long ordered variables (such as 0-10 scale items), as we will most likely want to treat such variables as numeric in statistical models. To cancel this default behaviour, we can add the additional argument convert_factors = FALSE. This is also the format that gets imported when using readRDS(). However, most of the common tabulation and graphing functions will not show the category “labels” in the output either, and for that purpose having variables “converted to factors” (with the original “Values” overwritten by the “Value labels”) may be a better option. Below we will import the data with factors converted, as we will focus on tabulation and plotting.\n\n\nIf you have saved the dataset into the same folder where your analysis script/Quarto file lives, you can import it by specifying just the name of the dataset. If it’s in a sub-folder or a different location on the computer, you need to include a full path to the dataset, like in the example below:\n\nwvs7data &lt;- readRDS(\"D:/HSS8005/MyData/wvs7.rds\")\n\nIn the code above, I am assigning (with the assignment operator &lt;-) the data to an object I called “wvs7data”, but I could have given it any other name as long as it follows R’s naming conventions (no spaces, avoid special characters; see also recommended naming strategies in the tidyverse style guide). The object will appear in the Environment tab (on the bottom right pane).\n\n\n\n\n\n\nWarning\n\n\n\nWorking with folders and paths\nIf the data file is not in the folder where you main script (the one that does the importing) is, you will need to specify either a relative path from the script to the data file, or an absolute path from the home/working directory.\nCopy/pasting paths on Windows computers\nAn easy way to get the path to the data file is to navigate there on your computer, copy the path, and paste it into your R script. However, there are some complications with this procedure when using a Windows PC. My path above would have copied as D:\\HSS8005\\MyData\\wvs7.rds, but R does not recognise back-slashes as path elements because in R the backslash has a special meaning. You must manually replace backslashes with either forward slashes or double-backslashes (D:\\\\HSS8005\\\\MyData\\\\wvs7.rds).\nAnother option is to use the function readClipboard(), which pastes into R whatever text you have on your clipboard (after copying it) using double backslashes. For example, you can copy a path to the folder where the data is located, then add the filename to the end of the text string using the paste0() function to get a working path to the file you want to load.\nYou can check:\n\n# First, copy the path to your data folder on your computer\n# Check the output:\n\npaste0(readClipboard(), \"/wvs7.rds\")\n\nThe file in the path can then be imported as normal:\n\nwvs7data &lt;- data_read(paste0(readClipboard(), \"/wvs7.rds\"))\n\nUsing the {here} package\nWorking with paths, folders, directories in a sustainable and robust way can be a challenge. The {here} package provides some useful options if you are working within R project directories. By loading the here library, you establish the working directory to be the root folder of your R project (i.e. the folder where the .Rproj file is located), and you can easily construct paths to any file within that project by listing the folders that contain it relative to the project root. This works similarly on all operating systems, and it’s as easy as:\n\nlibrary(here)\n\nwvs7data &lt;- readRDS(here(\"HSS8005\", \"MyData\", \"wvs7.rds\"))\n\nYou can read more about the package in the “R for Social Scientists” course.\n\n\nWe can look at the dataset object in the Environment pane. If we click on the blue button with the white arrow before the name of the object, a list of variables and other information about them will roll down. If we click on the object’s name or info, the dataset will open in the Sources pane, just next to the R script file. This is equivalent to having run the following command:\n\nView(wvs7data)    \n\nNote the capital “V”; R is case-sensitive, so always pay attention; view(wvs7data) won’t work.\nYou can explore the dataset a bit. Only the first 50 columns (i.e. variables) are displayed, to see the next 50 you can click on arrow (&gt;) in the dataset window’s toolbar. Once you’ve had a quick look, you can close that view or return to the R script."
   },
   {
     "objectID": "materials/info/info_w03.html",
@@ -481,14 +435,14 @@
     "href": "materials/handouts/index.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
-    "text": "Title\n\n\nDescription\n\n\nReading Time\n\n\n\n\n\n\nWeek 1 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 2 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 3 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 4 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 5 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 6 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 7 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 8 handout\n\n\n \n\n\n1 min\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\nDescription\n\n\nReading Time\n\n\n\n\n\n\nWeek 1 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 2 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 3 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 4 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 5 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 6 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 7 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 8 handout\n\n\n \n\n\n1 min\n\n\n\n\nWeek 1 Worksheet Handout\n\n\n \n\n\n1 min\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "materials/info/info_w02.html",
     "href": "materials/info/info_w02.html",
     "title": "Week 2  Escaping Flatland",
     "section": "",
-    "text": "Description\nIn Edwin Abbott’s 1884 novella, the inhabitants of Flatland are geometric shapes living in a two-dimensional world, incapable of imagining the existence of higher dimensions. A sphere passing through the plain of their world is a fascinating but incomprehensible event: Flatlanders can only see a dot becoming a circle, increasing in circumference, then shrinking back in size and disappearing. There are, in this universe, worlds with even more limited views, like the one-dimensional Lineland and the zero-dimensional Pointland. Any attempt to expand the perspective of their inhabitant(s) is doomed to failure. But as in any good adventure story, a chosen Flatland native embarks on a journey of discovery and revelation - and ostracism and imprisonment. The story is interpreted as an allegorical criticism of Victorian-age social structure, but can equally describe the limitations of inhabiting uncritically a methodological world in which all data are ‘normal’ and all relationships are linear. Moving beyond linearity and acquiring the statistical intuition needed to think in higher dimensions and perceive more complex relationships is indeed a matter of practice-induced revelation. It’s unlikely that we will reach statistical nirvana in this short course, but we’ll attempt to build some more substantial structures upon the arid plains of linear regression. We start by looking around in the Flat-, Line- and Point-lands of quantitative analysis. Incorrigible procrastinators may want to check out a full-length computer animated film version of Flatland on YouTube. Others may be better served by this brief TED-Ed animation.",
+    "text": "Description\nIn Edwin Abbott’s 1884 novella, the inhabitants of Flatland are geometric shapes living in a two-dimensional world, incapable of imagining the existence of higher dimensions. A sphere passing through the plain of their world is a fascinating but incomprehensible event: Flatlanders can only see a dot becoming a circle, increasing in circumference, then shrinking back in size and disappearing. There are, in this universe, worlds with even more limited views, like the one-dimensional Lineland and the zero-dimensional Pointland. Any attempt to expand the perspective of their inhabitant(s) is doomed to failure. But as in any good adventure story, a chosen Flatland native embarks on a journey of discovery and revelation - and ostracism and imprisonment. The story is interpreted as an allegorical criticism of Victorian-age social structure, but can equally describe the limitations of inhabiting uncritically a methodological world in which all data are ‘normal’ and all relationships are linear. Moving beyond linearity and acquiring the statistical intuition needed to think in higher dimensions and perceive more complex relationships is indeed a matter of practice-induced revelation. It’s unlikely that we will reach statistical nirvana in this short course, but we’ll attempt to build some more substantial structures upon the arid plains of linear regression. We start by looking around in the Flat-, Line- and Point-lands of quantitative analysis. Incorrigible procrastinators may want to check out a full-length computer animated film version of Flatland on YouTube. Others may be better served by this brief TED-Ed animation.\n\n\nReadings\nStatistics\n\nROS: Chapters 3, 4, 6-12\nTSD: Chapter 12 (“Linear models”)\n\nCoding\n\nTSD: Chapters 9 and 11\nR4DS: Chapters 11, 12\n\nApplication\n\nChapter 4 in Wilkinson, Richard G., and Kate Pickett. 2010. The Spirit Level: Why Greater Equality Makes Societies Stronger. New York: Bloomsbury Press.\nÖsterman, Marcus. 2021. ‘Can We Trust Education for Fostering Trust? Quasi-Experimental Evidence on the Effect of Education and Tracking on Social Trust’. Social Indicators Research 154(1):211–33 - (online)\nMitchell, Jeffrey. 2021. “Social Trust and Anti-immigrant Attitudes in Europe: A Longitudinal Multi-Level Analysis.” Frontiers in Sociology 6 (April): 604884 - (online)",
     "crumbs": [
       "Materials",
       "Week 2"
@@ -499,14 +453,14 @@
     "href": "materials/notes/index.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
-    "text": "Title\n\n\nDescription\n\n\nReading Time\n\n\n\n\n\n\nEscaping Flatland\n\n\n?var:topic-abstract.w2\n\n\n1 min\n\n\n\n\nCategories\n\n\n?var:topic-abstract.w3\n\n\n1 min\n\n\n\n\nInteractions\n\n\n?var:topic-abstract.w4\n\n\n1 min\n\n\n\n\nPaths to collision\n\n\n?var:topic-abstract.w5\n\n\n1 min\n\n\n\n\nHierarchies\n\n\n?var:topic-abstract.w6\n\n\n1 min\n\n\n\n\nTemporalities\n\n\n?var:topic-abstract.w7\n\n\n1 min\n\n\n\n\nStudy design\n\n\n?var:topic-abstract.w8\n\n\n1 min\n\n\n\n\nWeek 1 Worksheet Notes\n\n\n \n\n\n24 min\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\nDescription\n\n\nReading Time\n\n\n\n\n\n\nWeek 2 Worksheet Notes\n\n\n \n\n\n7 min\n\n\n\n\nCategories\n\n\n?var:topic-abstract.w3\n\n\n1 min\n\n\n\n\nInteractions\n\n\n?var:topic-abstract.w4\n\n\n1 min\n\n\n\n\nPaths to collision\n\n\n?var:topic-abstract.w5\n\n\n1 min\n\n\n\n\nHierarchies\n\n\n?var:topic-abstract.w6\n\n\n1 min\n\n\n\n\nTemporalities\n\n\n?var:topic-abstract.w7\n\n\n1 min\n\n\n\n\nStudy design\n\n\n?var:topic-abstract.w8\n\n\n1 min\n\n\n\n\nWeek 1 Worksheet Notes\n\n\n \n\n\n23 min\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "materials/slides-frame/index.html",
     "href": "materials/slides-frame/index.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
-    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nWeek 1  Introduction\n\n\n \n\n\n\n\nWeek 1  Mind your language\n\n\n \n\n\n\n\nWeek 2  Escaping Flatland\n\n\n \n\n\n\n\nWeek 3  Categories\n\n\n \n\n\n\n\nWeek 4  Interactions\n\n\n \n\n\n\n\nWeek 5  Paths to collision\n\n\n \n\n\n\n\nWeek 6  Hierarchies\n\n\n \n\n\n\n\nWeek 7  Temporalities\n\n\n \n\n\n\n\nWeek 8  Study design\n\n\n \n\n\n\n\nWeek 8  Study design\n\n\n \n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\nDescription\n\n\n\n\n\n\nWeek 2  Escaping Flatland\n\n\n \n\n\n\n\nWeek 1  Mind your language\n\n\n \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "materials/slides-frame/slides-frame_w01.html",
@@ -519,49 +473,6 @@
       "Week 1",
       "Presentation"
     ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w03.html",
-    "href": "materials/slides-frame/slides-frame_w03.html",
-    "title": "Week 3  Categories",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 3",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w05.html",
-    "href": "materials/slides-frame/slides-frame_w05.html",
-    "title": "Week 5  Paths to collision",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 5",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w07.html",
-    "href": "materials/slides-frame/slides-frame_w07.html",
-    "title": "Week 7  Temporalities",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
-    "crumbs": [
-      "Materials",
-      "Week 7",
-      "Presentation"
-    ]
-  },
-  {
-    "objectID": "materials/slides-frame/slides-frame_w08c.html",
-    "href": "materials/slides-frame/slides-frame_w08c.html",
-    "title": "Week 8  Study design",
-    "section": "",
-    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)"
   },
   {
     "objectID": "materials/slides/w0.html#video",
@@ -590,5 +501,204 @@
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
     "text": "References"
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w02.html",
+    "href": "materials/slides-frame/slides-frame_w02.html",
+    "title": "Week 2  Escaping Flatland",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/handouts/handouts_w01.html",
+    "href": "materials/handouts/handouts_w01.html",
+    "title": "Week 1 Worksheet Handout",
+    "section": "",
+    "text": "Mind your language: A brief introduction to R, RStudio, and other tools of the trade"
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w08.html",
+    "href": "materials/slides-frame/slides-frame_w08.html",
+    "title": "Week 8  Study design",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 8",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w06.html",
+    "href": "materials/slides-frame/slides-frame_w06.html",
+    "title": "Week 6  Hierarchies",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 6",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w04.html",
+    "href": "materials/slides-frame/slides-frame_w04.html",
+    "title": "Week 4  Interactions",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 4",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w03.html",
+    "href": "materials/slides-frame/slides-frame_w03.html",
+    "title": "Week 3  Categories",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 3",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w05.html",
+    "href": "materials/slides-frame/slides-frame_w05.html",
+    "title": "Week 5  Paths to collision",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 5",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/slides-frame/slides-frame_w07.html",
+    "href": "materials/slides-frame/slides-frame_w07.html",
+    "title": "Week 7  Temporalities",
+    "section": "",
+    "text": "View the slides full-screen in a standalone browser window here. The lecture recording is available on ReCap (requires Newcastle University login)",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html",
+    "href": "materials/worksheets/worksheets_w02.html",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "",
+    "text": "This session introduces simple and multiple linear regression models. You will be working with data from Österman (2021) to replicate parts their analysis. We will be covering only basic regression methods in this session, so the article will serve mainly as a broad background to the data here. We will be returning to this article in future weeks too, expanding our modelling strategy as we discover new methods. We will also practice some data management tasks and the basics of data visualisation using principles from ‘the grammar of graphics’ as implemented in the {ggplot2} package (see Kieran Healy’s Data Visualization: A practical introduction for an introduction with many practical examples).\nBy the end of the session, you will:\n\nlearn how to import data from foreign formats (e.g. SPSS, Stata, CSV)\nknow how to perform basic descriptive statistics on a dataset\nunderstand the basics of data visualisation\nknow how to fit linear regression models in R using different functions\nlearn a few options for presenting findings from regression models",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#aims",
+    "href": "materials/worksheets/worksheets_w02.html#aims",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "",
+    "text": "This session introduces simple and multiple linear regression models. You will be working with data from Österman (2021) to replicate parts their analysis. We will be covering only basic regression methods in this session, so the article will serve mainly as a broad background to the data here. We will be returning to this article in future weeks too, expanding our modelling strategy as we discover new methods. We will also practice some data management tasks and the basics of data visualisation using principles from ‘the grammar of graphics’ as implemented in the {ggplot2} package (see Kieran Healy’s Data Visualization: A practical introduction for an introduction with many practical examples).\nBy the end of the session, you will:\n\nlearn how to import data from foreign formats (e.g. SPSS, Stata, CSV)\nknow how to perform basic descriptive statistics on a dataset\nunderstand the basics of data visualisation\nknow how to fit linear regression models in R using different functions\nlearn a few options for presenting findings from regression models",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#setup",
+    "href": "materials/worksheets/worksheets_w02.html#setup",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Setup",
+    "text": "Setup\nIn Week 1 you set up R and RStudio, and an RProject folder (we called it “HSS8005_labs”) with an .R script and a .qmd or .Rmd document in it (we called these “Lab_1”). Ideally, you saved this on a cloud drive so you can access it from any computer (e.g. OneDrive). You will be working in this folder. If it’s missing, complete Exercise 3 from the Week 1 Worksheet.\nYou can create a new .R script and .qmd/.Rmd for this week’s work (e.g. “Lab_2”). Start working in the .R script initially, then switch to .qmd/.Rmd later in the session to report on your final analysis.",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#exercise-1-load-and-install-r-packages-needed-for-this-lab",
+    "href": "materials/worksheets/worksheets_w02.html#exercise-1-load-and-install-r-packages-needed-for-this-lab",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Exercise 1: Load (and install) R packages needed for this lab",
+    "text": "Exercise 1: Load (and install) R packages needed for this lab\nUsing function we have learnt in Week 1, load (and install, if needed) the following R packages:\n\ntidyverse\neasystats\ngtsummary\nggformula\nsjlabelled",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#exercise-2-import-external-data",
+    "href": "materials/worksheets/worksheets_w02.html#exercise-2-import-external-data",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Exercise 2: Import external data",
+    "text": "Exercise 2: Import external data\nAs we have seen in Week 1, small datasets that are included in R packages (including base R) for demonstration purposes can be used by simply invoking the name of the dataset. For example, the command head(mtcars) would print out the first 5 rows (cases) in the “mtcars” dataset included in base R (more specifically, in its “datasets” package). To access a dataset from a non-base-R package, the process is similar, however, we need to ensure that the package is installed on our system and that we specify the name of the package; for example, to access the {starwars} dataset (which contains all sorts of information about the characters of Star Wars films), we need to make sure that dplyr - or the whole tidyverse - is installed:\n\nhead(starwars) # gives an Error\n\nhead(dplyr::starwars) # works, as long as {dplyr} or the whole {tidyverse} are installed\n\nReal-life datasets, however, need to be imported into R. Datasets come in various formats. R’s native data format has the extension .rds and can be imported with the readRDS() function. The counterpart function saveRDS() exports a dataset to the .rds format. The core-tidyverse {readr} package has similar functions (read_rds() / write_rds()).\nThe .rds format is useful because it can be compressed to various sizes to take up less space, but can only be directly opened in R. It is much more common to encounter data saved in a “delimited” text format, which can be easily opened in a spreadsheet viewer/editor such as Excel. This makes it very interchangeable and therefore very common. The most common is probably the “comma separated values” (.csv) format, which can be imported with the base-R function read.csv() or the tidyverse readr::read_csv() equivalent. Read Chapter 11 in R4DS for more on these functions.\nVery often, you will need to import data saved in the format of another proprietary statistical analysis package such as SPSS or Stata. Large survey projects usually make data available in these formats. The great advantage of these formats is that they can incorporate additional information about variables and the levels of categorical variables (e.g. value labels, specific values for different types of missing values). These additional information can be extremely valuable, but they are not handled straight-forwardly in text-based format, spreadsheets and R’s native data format. To make them operational in R, we need a few specially designed functions.\nThe {haven} package — part of the extended {tidyverse}, meaning that it is installed on your system as part of {tidyverse}, but the library(\"tidyverse\") command does not load it by default; it needs to be loaded explicitly — is one of the most commonly used for this purpose. Functions such as read_sas(), read_sav() and read_dta() import datasets specific to the SAS, SPSS and Stata programs, respectively.\nIt is highly recommended to read the documentation available for the {haven} package to understand how it operates. Fundamentally, it is designed to import data to a intermediary format which stores the additional labeling information in a special format that allows users to access them, but not making them easy to use directly. A suite of packages developed by Daniel Lüdecke from the University of Hamburg offer some additional functionality to work with labels directly when summarising and plotting data. These packages integrate well with the {tidyverse} and are actively maintained, and we will use them in this course to make our lives a bit easier.\nIn a previous step, we have installed and loaded the {sjlabelled} package and the easystats suite of packages, which includes the datawizard package that contains a number of functions that make data(frame) manipulations easier.\nThe functions sjlabelled::read_sas(), sjlabelled::read_spss() and sjlabelled::read_stata() are the {sjlabelled} equivalents of the {haven} functions mentioned above. This vignette article included with the package explains the main differences between the two.\nThe more generic function data_read() from easystats’s datawizard package loads data from various formats based on the source files extension, including files from internet sources or compressed files. It relies on the rio package, which provides similar functionality.\n\n\n\n\n\n\nTip\n\n\n\nIt’s important to note that by default the data_read() function assumes that numeric variables where all values have a value label are categorical and will convert them into factors. That means that all the numeric “values” will be replaced by the “value labels” (e.g. 1=“Yes”/ 2=“No” will become simply “Yes”/“No”).\nThis is usually a reasonable default behaviour, because the majority of functions in R do not handle “value labels” and working with textual (character string) values can be more explicit.\nHowever, this may be less appropriate when the dataset contains many long ordered variables (such as 0-10 scale items), as we will most likely want to treat such variables as numeric in statistical models. To cancel this default behaviour, we can add the additional argument convert_factors = FALSE. This is also the format that gets imported when using readRDS().\nHowever, most of the common tabulation and graphing functions will not show the category “labels” in the output either, and for that purpose having variables “converted to factors” (with the original “Values” overwritten by the “Value labels”) may be a better option.\n\n\nAs a first step, let’s import the osterman dataset that underpins the Österman (2021) article (see the Data page on the course website for information about the datasets available in this course):\n\nosterman &lt;- datawizard::data_read(\"https://cgmoreh.github.io/HSS8005-data/osterman.dta\")",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#exercise-3-summarise-dataset-and-create-a-codebook",
+    "href": "materials/worksheets/worksheets_w02.html#exercise-3-summarise-dataset-and-create-a-codebook",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Exercise 3: Summarise dataset and create a codebook",
+    "text": "Exercise 3: Summarise dataset and create a codebook\n\nUsing functions learnt in Week 1, do the following:\n\ncheck the dimensions of the dataset; what does it tell you?\nprint a summary of the entire dataset; what have you learnt about the data?\n\n\nThere are various other options available for describing variables in different packages. For example, the describe_distribution() function from the datawizard package which is part of the easystats ecosystem that we already installed and loaded is useful for summarising numeric variables, while the data_tabulate() is useful for creating frequency tables of categorical variables.\nRun the commands below and inspect the outputs:\n\ndescribe_distribution(osterman)\n\nA very convenient way to create a codebook for a dataset – especially if it has value-labelled categorical variables – is offered by datawizard::data_codebook() function. The generated codebook describes the variables in the dataset and provides brief summary statistics. We can view this codebook in the RStudio Viewer, or we can save it as an html file. Codebooks are very useful for gaining an overview understanding of a large dataset.\nIn the command below we create an object storing the codebook; once it’s created, open the codebook in the Viewer and inspect it:\n\nosterman_codebook &lt;- data_codebook(osterman)",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#exercise-4-descriptive-graphs",
+    "href": "materials/worksheets/worksheets_w02.html#exercise-4-descriptive-graphs",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Exercise 4: Descriptive graphs",
+    "text": "Exercise 4: Descriptive graphs\nCreate some basic descriptive graphs using the ggplot() command from the {ggplot2} tidyverse package for the association between the following variables:\n\n‘trustindex3’ and ‘eduyrs25’\n‘trustindex3’ and ‘agea’\n‘trustindex3’ and ‘female’\n\n1. ‘trustindex3’ and ‘eduyrs25’\nThe best way to approach this problem is by working through the first examples in Kieran Healy’s Data Visualization: A practical introduction, starting at Chapter 3, and applying them to your data. Outside class, you can develop these basic graphs into better looking ones by adding various extra layers. The ggplot() function is part of the ggplot2 package, which is included in the core tidyverse, so we don’t need to load it separately if we have already loaded the tidyverse.\nThe ggplot approach to graphs is to build them up step-by-step using various layers. The basic template code for a ggplot() graph is the following:\nggplot(data = &lt;DATA&gt;, mapping = aes(&lt;MAPPINGS&gt;)) +  &lt;GEOM_FUNCTION&gt;()\nFor example, the code below sets up a totally blank canvas:\n\nggplot()\n\nTo start populating the canvas we need to add a first layer containing our dataset and the variables we want to ‘map’ using the aes() argument (for “aesthetic mapping”). This adds coordinates to the canvas based on the variables we want to graph (in our case, ‘trustindex3’ and ‘eduyrs25’). We are treating ‘trustindex3’ as the outcome variables in these exercises, so we will want to position it on the y axis:\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25))\n\nWe now have a basic layer, but no actual data. The final crucial move is to add another layer using the + operator the type of graph (called a “geom” in ggplot, short for “geometric object”, such as a bar, a line, a boxplot, histogram, etc.) that we want to use to represent the relationship between the two variables. In this case, given that both variables are measured on a numeric scale (or at least on an ordinal scale with seven or more categories), the best option is a scatterplot. In ggplot(), a scatterplot “geom” are called with the geom_point() function:\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_point()\n\nWe now have a scatterplot of the relationship between ‘trustindex3’ and ‘eduyrs25’. Because our scales are rather short and the data is spread out, this scatterplot is not very informative.\nWe can choose to add another “geom” that is better able to summarise the relationship. The function geom_jitter() (a shortcut to the specification geom_point(position = \"jitter\")) is helpful in such cases because it adds a small amount of random variation to the location of each point, making areas of overlapping points more visible. The commands below do the same thing:\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_point(position = \"jitter\")\n\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_point() + \n  geom_jitter()\n\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_jitter()\n\nAnother option is the geom_smooth() function, which provides a set of options, basically returning “smooth lines” representing various types of regression lines. The function fits a regression in the background and graphs the results. The default setting is to fit a generalized additive model that captures non-linearities in the data with a smoothing spline (the Wikipedia article on GAMs gives a maths-heavy outline of these models, but they are beyond our interests here). The smooth line produced is probably more informative about the general idea:\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_jitter() +\n  geom_smooth()\n\nBut we can also specify other regression methods, and because we are here aiming to model the relationship between trust and education as a linear model, we can specify the method as “lm”:\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_jitter() +\n  geom_smooth(method = \"lm\")\n\nNow we get a straight regression line, which is basically the visual representation of the bivariate linear regression model that we will fit in Exercise 2 below. There are numerous further specifications that can be added to improve the graph, and Kieran Healy’s book is a good resource for ideas that you can play around with. We won’t go into much more detail about these additional options here, but as a taster, let’s say that we want to make the regression line more pronounced by changing its colour to red and make the scatter dots slightly transparent by adjusting the colour’s “alpha” level:\n\nggplot(osterman, aes(y = trustindex3, x = eduyrs25)) +\n  geom_jitter(alpha = 0.1) +\n  geom_smooth(method = \"lm\", colour = \"red\")\n\n2. ‘trustindex3’ and ‘agea’\nWe can now do something similar for the relationship between trust and age (the ‘trustindex3’ and ‘agea’ variables in the dataset). Again, both variables are measured on a numeric scale, so a scatterplot should work best. Because we don’t know what to expect and therefore what additional settings would improve each individual graph, we start from the most basic informative layer and build up from there. To practice some alternative approaches to working with plots, here we will first save the basic plot as a ggplot object, to which we can later add further layers and specifications:\n\nage_plot &lt;- ggplot(osterman, aes(y = trustindex3, x = agea)) +\n  geom_point()\n\nIf no output was generated from the command above, that’s as expected. The graph was produced, but we didn’t ask for it to be printed, we only asked for it to be saved as an object called “age_plot”. To see it, we can simply call “age_plot”. We can then make various additions to this plot.\n\nage_plot\n\nThis looks very similar to the previous graph, so we could add the same additional specificaitons as in the previous exercise, this time to the plot object that we saved:\n\nage_plot +\n  geom_jitter(alpha = 0.1) +\n  geom_smooth(method = \"lm\", colour = \"red\")\n\nThe association between age and trust appears very weak, something that we will explore further in Exercise 2.\n3. ‘trustindex3’ and ‘female’\nWe can try a similar scatterplot here too, but there may be better options:\n\nggplot(osterman, aes(y = trustindex3, x = female)) +\n  geom_point() +\n  geom_jitter(alpha = 0.1) +\n  geom_smooth(method = \"lm\", colour = \"red\")\n\nThis graph can be confusing, are we are better off using another “geom” because the female variable is a dichotomous/binary factor (categorical) variable. A good visualisation tool in the this case is a boxplot, which can be called with the geom_boxplot() function:\n\nggplot(osterman, aes(y = trustindex3, x = female)) +\n  geom_boxplot()\n\nThe issue with this graph is that the female variable, while a dichotomous/binary categorical variable, is not labelled; instead, the value 1 is taken to represent the “true” value for the name of the variable (i.e. 1 means that one is female, as the variable name states, and the value 0 means that they are not female, but male).\nWe could use the set_labels() function from the sjlabelled package to add labels to this variable:\n\nosterman &lt;- osterman |&gt; \n  sjlabelled::set_labels(female, labels = c(\"Male\", \"Female\"))\n\nThe sjlabelled package also has a special variable type - as_label() - which is useful for forcing R to use the labels of factor variables in outputs. In the command below, we first change the variable type with as_label(), then we run the same ggplot(_) function as before:\n\n# We are overwriting the original dataset here, so we better not make a mistake:\nosterman &lt;- osterman |&gt; mutate(female = sjlabelled::as_label(female))\n\n# And from now on the 'female' variable will be treated as a labelled factor:\nggplot(osterman, aes(y = trustindex3, x = female)) +\n  geom_boxplot()\n\nBox-plots contain a lot of useful summary information about variables, and the interpretation of the shapes is the following:\n\n\nbox-plot",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#exercise-5-fit-simple-bivariate-regression-models-using-ols",
+    "href": "materials/worksheets/worksheets_w02.html#exercise-5-fit-simple-bivariate-regression-models-using-ols",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Exercise 5: Fit simple bivariate regression models using OLS",
+    "text": "Exercise 5: Fit simple bivariate regression models using OLS\nFit three simple bivariate OLS regressions using the lm() function:\n\nRegress ‘trustindex3’ on ‘eduyrs25’ and interpret the results\nRegress ‘trustindex3’ on ‘agea’ and interpret the results\nRegress ‘trustindex3’ on ‘female’ and interpret the results\nRegress ‘trustindex3’ on all three predictors listed above and interpret the results\n\n1. Regress ‘trustindex3’ on ‘eduyrs25’ and interpret the results\nWe will do just that, saving the regression as an object called “m1” (for model 1):\n\nm1 &lt;- lm(trustindex3 ~ eduyrs25, data = osterman)\n\nThe model object has now been saved in the Environment, and we can inspect it manually if we want by opening it in the Source window. The object is a large list, with various components that we can call and print separately. The most basic information that we can obtain from the model is the coefficients:\n\ncoefficients(m1)\n\nThis basic information is enough to solve the linear equation underpinning the model:\n\\[ y_i=b_0+b_1x_i \\] The coefficients correspond to the \\(b\\)’s in this simple model, and we can plug the values in to obtain\n\\[ trust_i=3.91 + 0.11 \\times education_i \\]\nWe find, thus, that the number of years spent in education has a positive outcome on social trust, with each additional year of education associated with a 0.11-points higher score on the trust index, above the baseline of 3.91 points in the case when education is equal to 0. With this formula we can calculate predictions of the trust score for any individual \\(i\\) from their years of education.\nWe can also get more information about the model with the summary() function. When applied to a linear model object, it provides the following output:\n\nsummary(m1)\n\nThis output tells us a lot more about the fitted model, for example a summary table of the residuals and an analysis of variance (ANOVA) summary of the residuals, as well as estimates of variation for our coefficients (the standard errors and the p-values associated with t-tests - displayed as Pr(&gt;|t|)).\nWhile these are informative, the format is not ideal for further manipulation and presentation. Several user-written functions exist to improve on this output. For example, the {broom} package - part of the {tidymodels} suite of packages - has functions to extract model information into “tidy” tibbles (data sets), which can then be further manipulated and plotted. This is especially useful when working with results from many models that would benefit from comparing in a standardised format.\nThe summary() function prints out a lot of information, but it’s not the best format if we wish to reuse the various statistical components for further analysis, and the presentation of the output could also be improved. The model_parameters() and the model_performance() functions from the parameters package part of easystats is a better option:\n\nmodel_parameters(m1) \n\nmodel_performance(m1)\n\nThe output table shows both 95% confidence intervals (CI) and the standard errors (SE), which can be easier to interpret (CI are calculated as Estimate +/- (1.96 x Std. Error); you can try it out in the Console, replacing in the numeric values).\nThe best approach is to graph the model results and present them in a figure, but that’s not very informative in the case of a simple model with only one predictor, so we can leave it for later.\n2. Regress ‘trustindex3’ on ‘agea’ and interpret the results\nWe can do as above:\n\n# Write your own code; name the mode \"m2\"\n\n3. Regress ‘trustindex3’ on ‘female’ and interpret the results\n\n# Write your own code; name the model \"m3\"\n\n4. Regress ‘trustindex3’ on all three predictors listed above and interpret the results\nFinally we can fit a multiple linear model with several predictors:\n\n# Write your own code; name the model \"m4\"\n\nOne interesting finding from Model 4 is to notice how radically the statistical significance of the female variable changes compared to Model 3. The impact of gender is still very weak in real terms: compared to men of similar age and education level, women score 0.04 points higher on the trust scale; but this is still a stronger effect than in the simple bivariate model (where \\(b_1\\) was 0.008), and our confidence intervals are much narrower.\nIt’s worth noticing that the number of observations used in the two models is not the same, due to missing values in some variables. We could make the samples comparable by selecting out the sample of 68,211 included in Model 4, then refitting Model 3 on that sample only:\n\nsample &lt;- m4$model\n\nm3_new &lt;- lm(trustindex3 ~ female, data = sample)\n\nmodel_parameters(m3) \n\nWe see that this does not affect the overall picture.",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w02.html#exercise-6-advanced-apply-the-model-to-a-new-dataset",
+    "href": "materials/worksheets/worksheets_w02.html#exercise-6-advanced-apply-the-model-to-a-new-dataset",
+    "title": "Week 2 Worksheet Exercises",
+    "section": "Exercise 6 (Advanced): Apply the model to a new dataset",
+    "text": "Exercise 6 (Advanced): Apply the model to a new dataset\nThe ostermann data originates from Waves 1-9 of the European Social Survey. The ESS data are accessible freely upon registration. As part of this exercise, access data from Wave 10 of the survey (from this site: https://www.europeansocialsurvey.org/data/) and perform the following tasks:\n\ndownload the dataset to the Rproject folder\nselect the variables required to recreate the data to fit the multiple regression model from the previous exercise\ncreate your version of the ‘trustindex3’ variable\nfit the models from Exercise 2 and compare the results.\n\nYou should already be familiar with the functions needed to complete each of these steps, but it may require some self-study. The most important missing information required to complete this exercise is to be found in the description on how the trustindex3 scale was computed:\n\nTo study generalized social trust, I am following the established approach of using a validated three-item scale (Reeskens and Hooghe 2008; Zmerli and Newton 2008). This scale consists of the classic trust question, an item on whether people try to be fair, and an item on whether people are helpful:  - ‘Generally speaking, would you say that most people can be trusted, or that you can’t be too careful in dealing with people?’  - ‘Do you think that most people would try to take advantage of you if they got the chance, or would they try to be fair?’  - ‘Would you say that most of the time people try to be helpful or that they are mostly looking out for themselves?’  All of the items may be answered on a scale from 0 to 10 (where 10 represents the highest level of trust) and the scale is calculated as the mean of the three items. The three-item scale clearly improves measurement reliability and cross-country validity compared to using a single item, such as the classic trust question. … See the Supplementary material for additional information on the construction of the social trust scale (Section A.1), as well as for models using the classic single-item measure of trust (Section A.9).\n\n\n&lt;&lt; the end &gt;&gt;",
+    "crumbs": [
+      "Materials",
+      "Week 2",
+      "Exercises"
+    ]
   }
 ]
