@@ -11,7 +11,7 @@
     "href": "plan8.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
-    "text": "Week\nTW\nDate\nTopic\nInfo\nNotes\nLecture\nLabs\nHandouts\n\n\n\n\n\n22\n29 January\nIntroduction\n\n\n\n\n\n\n\nWeek 1\n22\n30 January\nMind your language  A brief introduction to R, RStudio, and other tools of the trade\n\n\n  \n\n\n\n\nWeek 2\n23\n06 February\nEscaping Flatland  Linear models and their limitations\n\n  \n\n\n\n\n\nWeek 3\n24\n13 February\nCategories  Logistic regression and other generalised linear models\n\n  \n  \n  \n  \n\n\nWeek 4\n25\n20 February\nInteractions  Estimating, graphing and interpreting interaction effects\n\n  \n  \n  \n  \n\n\nWeek 5\n26\n27 February\nPaths to collision  Considerations for causal analysis\n\n  \n  \n  \n  \n\n\nWeek 6\n27\n05 March\nHierarchies  Multilevel models\n\n  \n  \n  \n  \n\n\nWeek 7\n28\n12 March\nTemporalities  Time series, panel and longitudinal data analysis\n\n  \n  \n  \n  \n\n\nWeek 8\n29\n19 March\nStudy design  Simulation-based power analysis for study design\n\n  \n  \n  \n  \n\n\n\n29\n22 March\nConclusions"
+    "text": "Week\nTW\nDate\nTopic\nInfo\nNotes\nLecture\nLabs\nHandouts\n\n\n\n\n\n22\n29 January\nIntroduction\n\n\n\n\n\n\n\nWeek 1\n22\n30 January\nMind your language  A brief introduction to R, RStudio, and other tools of the trade\n\n\n  \n\n\n\n\nWeek 2\n23\n06 February\nEscaping Flatland  Linear models and their limitations\n\n  \n\n\n\n\n\nWeek 3\n24\n13 February\nCategories  Logistic regression and other generalised linear models\n\n\n  \n\n  \n\n\nWeek 4\n25\n20 February\nInteractions  Estimating, graphing and interpreting interaction effects\n\n  \n  \n  \n  \n\n\nWeek 5\n26\n27 February\nPaths to collision  Considerations for causal analysis\n\n  \n  \n  \n  \n\n\nWeek 6\n27\n05 March\nHierarchies  Multilevel models\n\n  \n  \n  \n  \n\n\nWeek 7\n28\n12 March\nTemporalities  Time series, panel and longitudinal data analysis\n\n  \n  \n  \n  \n\n\nWeek 8\n29\n19 March\nStudy design  Simulation-based power analysis for study design\n\n  \n  \n  \n  \n\n\n\n29\n22 March\nConclusions"
   },
   {
     "objectID": "materials/worksheets/worksheets_w02.html",
@@ -804,7 +804,7 @@
     "href": "materials/worksheets/worksheets_w03.html#exercise-1-modelling-social-trust-and-education",
     "title": "Week 3 Worksheet Exercises",
     "section": "Exercise 1: Modelling social trust and education",
-    "text": "Exercise 1: Modelling social trust and education\nIn this first exercise, follow the steps in the analysis carried out in the Notes to replicate the results presented in Model 1 in Appendix A. Table 2 in Wu (2021)."
+    "text": "Exercise 1: Modelling social trust and education\nIn this first exercise, follow the steps in the analysis carried out in the Notes to replicate the results presented in Model 1 in Appendix A. Table 2 in (Wu2021EducationSocialTrust?)."
   },
   {
     "objectID": "materials/worksheets/worksheets_w03.html#exercise-2-refit-the-model-for-two-single-countries",
@@ -812,5 +812,12 @@
     "title": "Week 3 Worksheet Exercises",
     "section": "Exercise 2: Refit the model for two single countries",
     "text": "Exercise 2: Refit the model for two single countries\nYou will carry out this exercise on your own, and you’ll make two adjustments compared to the previous exercise. Instead of treating the entire dataset as undifferentiated, originating from one single population, we will acknowledge the fact that the data originate from various countries and that the local socio-cultural context has an impact on social behaviours and attitudes. To account for this, re-fit the logistic regression model from the previous exercise in two different ways:\n1.  fit the same model as before, but add the *country* variable to the model as a covariate;\n2.  select *two* countries of your choice, reduce the dataset to that country and fit the model on that data;\nIn order to select countries from the data, you will need to use another function, filter(), which lets us select rows (cases) given some criteria."
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w03.html#exercise-3-advanced-religiosity-and-social-trust",
+    "href": "materials/worksheets/worksheets_w03.html#exercise-3-advanced-religiosity-and-social-trust",
+    "title": "Week 3 Worksheet Exercises",
+    "section": "Exercise 3 (Advanced): Religiosity and social trust",
+    "text": "Exercise 3 (Advanced): Religiosity and social trust\nRead through the article by (Dingemans and Van Ingen 2015) and replicate their Model 1 in Table 1. They use data from the European Values Study, which is also freely available to download from the EVS website. Rely on the code and steps undertaken in the analysis presented in the Notes."
   }
 ]

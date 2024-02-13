@@ -3416,6 +3416,7 @@ vertical-align: -.125em;
   <li><a href="#exercise-0-load-and-install-r-packages-needed-for-this-lab" id="toc-exercise-0-load-and-install-r-packages-needed-for-this-lab" class="nav-link" data-scroll-target="#exercise-0-load-and-install-r-packages-needed-for-this-lab">Exercise 0: Load (and install) R packages needed for this lab</a></li>
   <li><a href="#exercise-1-modelling-social-trust-and-education" id="toc-exercise-1-modelling-social-trust-and-education" class="nav-link" data-scroll-target="#exercise-1-modelling-social-trust-and-education">Exercise 1: Modelling social trust and education</a></li>
   <li><a href="#exercise-2-refit-the-model-for-two-single-countries" id="toc-exercise-2-refit-the-model-for-two-single-countries" class="nav-link" data-scroll-target="#exercise-2-refit-the-model-for-two-single-countries">Exercise 2: Refit the model for two single countries</a></li>
+  <li><a href="#exercise-3-advanced-religiosity-and-social-trust" id="toc-exercise-3-advanced-religiosity-and-social-trust" class="nav-link" data-scroll-target="#exercise-3-advanced-religiosity-and-social-trust">Exercise 3 (Advanced): Religiosity and social trust</a></li>
   </ul></nav>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -3461,18 +3462,20 @@ vertical-align: -.125em;
 <li><a href="https://strengejacke.github.io/ggeffects/index.html"><code>ggeffects</code></a></li>
 <li><a href="https://marginaleffects.com"><code>marginaleffects</code></a></li>
 </ul></section><section id="exercise-1-modelling-social-trust-and-education" class="level2"><h2 class="anchored" data-anchor-id="exercise-1-modelling-social-trust-and-education">Exercise 1: Modelling social trust and education</h2>
-<p>In this first exercise, follow the steps in the analysis carried out in the <strong>Notes</strong> to replicate the results presented in <em>Model 1</em> in <em>Appendix A. Table 2</em> in <span class="citation" data-cites="Wu2021EducationSocialTrust">Wu (<a href="#ref-Wu2021EducationSocialTrust" role="doc-biblioref">2021</a>)</span>.</p>
+<p>In this first exercise, follow the steps in the analysis carried out in the <strong>Notes</strong> to replicate the results presented in <em>Model 1</em> in <em>Appendix A. Table 2</em> in <span class="citation" data-cites="Wu2021EducationSocialTrust">(<a href="#ref-Wu2021EducationSocialTrust" role="doc-biblioref"><strong>Wu2021EducationSocialTrust?</strong></a>)</span>.</p>
 </section><section id="exercise-2-refit-the-model-for-two-single-countries" class="level2"><h2 class="anchored" data-anchor-id="exercise-2-refit-the-model-for-two-single-countries">Exercise 2: Refit the model for two single countries</h2>
 <p>You will carry out this exercise on your own, and you’ll make two adjustments compared to the previous exercise. Instead of treating the entire dataset as undifferentiated, originating from one single population, we will acknowledge the fact that the data originate from various countries and that the local socio-cultural context has an impact on social behaviours and attitudes. To account for this, re-fit the logistic regression model from the previous exercise in two different ways:</p>
 <pre><code>1.  fit the same model as before, but add the *country* variable to the model as a covariate;
 2.  select *two* countries of your choice, reduce the dataset to that country and fit the model on that data;</code></pre>
 <p>In order to select countries from the data, you will need to use another function, <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code>, which lets us select rows (cases) given some criteria.</p>
+</section><section id="exercise-3-advanced-religiosity-and-social-trust" class="level2"><h2 class="anchored" data-anchor-id="exercise-3-advanced-religiosity-and-social-trust">Exercise 3 (Advanced): Religiosity and social trust</h2>
+<p>Read through the article by <span class="citation" data-cites="DingemansVanIngen2015DoesReligionBreed">(<a href="#ref-DingemansVanIngen2015DoesReligionBreed" role="doc-biblioref">Dingemans and Van Ingen 2015</a>)</span> and replicate their <em>Model 1</em> in <em>Table 1</em>. They use data from the <em>European Values Study</em>, which is also freely available to download from the EVS website. Rely on the code and steps undertaken in the analysis presented in the <strong>Notes</strong>.</p>
 
 
 
 </section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Wu2021EducationSocialTrust" class="csl-entry" role="listitem">
-Wu, Cary. 2021. <span>“Education and Social Trust in Global Perspective.”</span> <em>Sociological Perspectives</em> 64 (6): 1166–86. <a href="https://doi.org/10.1177/0731121421990045">https://doi.org/10.1177/0731121421990045</a>.
+<div id="ref-DingemansVanIngen2015DoesReligionBreed" class="csl-entry" role="listitem">
+Dingemans, Ellen, and Erik Van Ingen. 2015. <span>“Does Religion Breed Trust? A Cross-National Study of the Effects of Religious Involvement, Religious Faith, and Religious Context on Social Trust.”</span> <em>Journal for the Scientific Study of Religion</em> 54 (4): 739–55. <a href="https://doi.org/10.1111/jssr.12217">https://doi.org/10.1111/jssr.12217</a>.
 </div>
 </div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
