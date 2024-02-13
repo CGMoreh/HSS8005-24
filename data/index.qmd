@@ -24,6 +24,10 @@ content <- tribble(
   paste("[evs5](https://cgmoreh.github.io/HSS8005-data/evs5.sav)"), ".sav",
       "European Values Study; Wave 5 (2017-2021)",
       paste("[Source](https://search.gesis.org/research_data/ZA7500)"),# add <br> and more link lines where available
+  ## wvs56
+  paste("[wvs56](https://cgmoreh.github.io/HSS8005-24/data/wvs56.rds)"), ".Rds",
+      "Worlds Values Survey; combined Wave 5 and 6",
+      paste("[Source](https://www.worldvaluessurvey.org/wvs.jsp)"),
   ## osterman
   paste("[osterman](https://cgmoreh.github.io/HSS8005-data/osterman.dta)"), ".dta",
       "Replication data for @Osterman2021CanWeTrustEducationFostering, based on European Social Survey Rounds 1-9 data",
@@ -71,4 +75,5 @@ cat(content2)
 ```
 :::
 
-The datasets can be downloaded by clicking on the file name, or read into `R` directly from `"https://cgmoreh.github.io/HSS8005/data/___"` (using a type-appropriate read function and replacing \_\_\_ with "File name" and "Type" extension; e.g. `haven::read_dta("https://cgmoreh.github.io/HSS8005/data/dataset.dta")`).
+The datasets can be downloaded by clicking on the file name, or read into `R` directly from `"https://cgmoreh.github.io/HSS8005-24/data/___"` (using a type-appropriate read function and replacing \_\_\_ with "File name" and "Type" extension; e.g. `sjlabelled::read_stata("https://cgmoreh.github.io/HSS8005-24/data/dataset.dta")` or `datawizard::data_read("https://cgmoreh.github.io/HSS8005-24/data/dataset.dta")`).
+

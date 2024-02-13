@@ -3689,6 +3689,19 @@ vertical-align: -.125em;
 <li><a href="https://marginaleffects.com"><code>marginaleffects</code></a></li>
 </ul></section><section id="exercise-1-modelling-social-trust-and-education" class="level2"><h2 class="anchored" data-anchor-id="exercise-1-modelling-social-trust-and-education">Exercise 1: Modelling social trust and education</h2>
 <p>In this first exercise, follow the steps in the analysis carried out in the <strong>Notes</strong> to replicate the results presented in <em>Model 1</em> in <em>Appendix A. Table 2</em> in <span class="citation" data-cites="Wu2021EducationSocialTrust">Wu (<a href="#ref-Wu2021EducationSocialTrust" role="doc-biblioref">2021</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can download the raw World Values Survey dataset and prepare it with the code used in the Notes, but you can also download the prepared <code>wvs56</code> dataset from the <strong>Data</strong> page and <a href="https://cgmoreh.github.io/HSS8005-24/data/wvs56.rds">from here</a></p>
+</div>
+</div>
 </section><section id="exercise-2-refit-the-model-for-two-single-countries" class="level2"><h2 class="anchored" data-anchor-id="exercise-2-refit-the-model-for-two-single-countries">Exercise 2: Refit the model for two single countries</h2>
 <p>You will carry out this exercise on your own, and you’ll make two adjustments compared to the previous exercise. Instead of treating the entire dataset as undifferentiated, originating from one single population, we will acknowledge the fact that the data originate from various countries and that the local socio-cultural context has an impact on social behaviours and attitudes. To account for this, re-fit the logistic regression model from the previous exercise in two different ways:</p>
 <pre><code>1.  fit the same model as before, but add the *country* variable to the model as a covariate;
