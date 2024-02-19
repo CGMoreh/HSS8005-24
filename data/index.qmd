@@ -20,8 +20,8 @@ library("kableExtra")
 content <- tribble(
   ~"File name", ~"Type", ~"Description", ~"Link to source",
   # datasets
-  ## evs5
-  paste("[evs5](https://cgmoreh.github.io/HSS8005-data/evs5.sav)"), ".sav",
+  ## evs2017
+  paste("[evs2017](https://cgmoreh.github.io/HSS8005-24/data/evs2017.rds)"), ".Rds",
       "European Values Study; Wave 5 (2017-2021)",
       paste("[Source](https://search.gesis.org/research_data/ZA7500)"),# add <br> and more link lines where available
   ## wvs56
