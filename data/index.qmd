@@ -75,5 +75,5 @@ cat(content2)
 ```
 :::
 
-The datasets can be downloaded by clicking on the file name, or read into `R` directly from `"https://cgmoreh.github.io/HSS8005-24/data/___"` (using a type-appropriate read function and replacing \_\_\_ with "File name" and "Type" extension; e.g. `sjlabelled::read_stata("https://cgmoreh.github.io/HSS8005-24/data/dataset.dta")` or `datawizard::data_read("https://cgmoreh.github.io/HSS8005-24/data/dataset.dta")`).
+<!-- The datasets can be downloaded by clicking on the file name, or read into `R` directly from `"https://cgmoreh.github.io/HSS8005-24/data/___"` (using a type-appropriate read function and replacing \_\_\_ with "File name" and "Type" extension; e.g. `sjlabelled::read_stata("https://cgmoreh.github.io/HSS8005-24/data/dataset.dta")` or `datawizard::data_read("https://cgmoreh.github.io/HSS8005-24/data/dataset.dta")`). -->
 
