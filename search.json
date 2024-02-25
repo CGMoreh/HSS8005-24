@@ -273,14 +273,14 @@
     "href": "materials/slides/test.html#gaming-chance",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "Gaming chance",
-    "text": "Gaming chance\n \n\n\nWe may never know when humans started playing games of chance, but archaeological findings suggest it was a rather long time ago\nDuring the the First Dynasty in Egypt (c. 3500 B.C.) variants of a game involving astragali (small bones in the ankle of an animal) were already documented\nOne of the chief games may have been the simple one of throwing four astragali together and noting which sides fell uppermost"
+    "text": "Gaming chance\n\n\n\nWe may never know when humans started playing games of chance, but archaeological findings suggest it was a rather long time ago\nDuring the the First Dynasty in Egypt (c. 3500 B.C.) variants of a game involving astragali (small bones in the ankle of an animal) were already documented\nOne of the chief games may have been the simple one of throwing four astragali together and noting which sides fell uppermost"
   },
   {
     "objectID": "materials/slides/test.html#ālea-iacta-est",
     "href": "materials/slides/test.html#ālea-iacta-est",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "Ālea iacta est",
-    "text": "Ālea iacta est\n\n\n\n\nThe six-sided die we know today may have been obtained from the astragalus by grinding it down until it formed a rough cube\nDice became common in the Ptolemaic dynasty (300 to 30 B.C.)\nThere is evidence that dice were used for divination rites in this period - one carried the sacred symbols of Osiris, Horus, Isis, Nebhat, Hathor and Horhudet engraved on its six sides\nIn Roman times, rule by divination attained great proportions; Emperors Septimius Severus (Emperor A.D. 193-211) and Diocletian (Emperor AD. 284-305) were notorious for their reliance on the whims of the gods"
+    "text": "Ālea iacta est\n\n\n\nThe six-sided die we know today may have been obtained from the astragalus by grinding it down until it formed a rough cube\nDice became common in the Ptolemaic dynasty (300 to 30 B.C.)\nThere is evidence that dice were used for divination rites in this period - one carried the sacred symbols of Osiris, Horus, Isis, Nebhat, Hathor and Horhudet engraved on its six sides\nIn Roman times, rule by divination attained great proportions; Emperors Septimius Severus (Emperor A.D. 193-211) and Diocletian (Emperor AD. 284-305) were notorious for their reliance on the whims of the gods"
   },
   {
     "objectID": "materials/slides/test.html#fat-chance",
@@ -307,8 +307,8 @@
     "objectID": "materials/slides/test.html#from-chance-to-probability",
     "href": "materials/slides/test.html#from-chance-to-probability",
     "title": "HSS8005 {{< iconify line-md plus >}}",
-    "section": "From chance to probability",
-    "text": "From chance to probability\n\n\n\nUntil 18th century people had mostly used probability to solve problems about dice throwing and other games of chance\nJacob (Jacques/James) Bernoulli (1654/1655-1705), a Swiss mathematician trained as a theologian and ordained as a minister of the Reformed church in Basel, began asking questions about probabilistic inference instead\nHis work focused on the mathematics of uncertainty - what he came to call stochastics (from the Greek word \\(στόχος\\) [stókhos] meaning to aim or “guess’)\nArs Conjectandi (The Art of Conjecturing) - published posthumously in 1713"
+    "section": "From chance to probability\n",
+    "text": "From chance to probability\n\n\n\n\nUntil 18th century people had mostly used probability to solve problems about dice throwing and other games of chance\nJacob (Jacques/James) Bernoulli (1654/1655-1705), a Swiss mathematician trained as a theologian and ordained as a minister of the Reformed church in Basel, began asking questions about probabilistic inference instead\nHis work focused on the mathematics of uncertainty - what he came to call stochastics (from the Greek word \\(στόχος\\) [stókhos] meaning to aim or “guess’)\n\nArs Conjectandi (The Art of Conjecturing) - published posthumously in 1713"
   },
   {
     "objectID": "materials/slides/test.html#inferential-questions",
@@ -322,7 +322,7 @@
     "href": "materials/slides/test.html#large-numbers",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "Large numbers",
-    "text": "Large numbers\n\n\nBernoulli’s solution, more technically:  For any given \\(\\epsilon\\) &gt; 0 and any \\(s\\) &gt; 0, there is a sample size \\(n\\) such that, with \\(w\\) being the number of white pebbles counted in the sample and \\(f\\) being the true fraction of white pebbles in the urn, the probability of \\(w/n\\) falling between \\(f − \\epsilon\\) and \\(f + \\epsilon\\) is greater than \\(1 − s\\).\nthe fraction \\(w/n\\) is the ratio of white to total pebbles we observe in our sample\n\\(\\epsilon\\) (epsilon) captures the fact that we may not see the true urn ratio exactly thanks to random variation in the sample; larger samples help assure that we get closer to the true value, but uncertainty always remains\n\\(s\\) reflects just how sure we want to be; for example, set \\(s\\) = 0.01 and be 99% percent sure.\nmoral certainty as distinct from absolute certainty of the kind logical deduction provides"
+    "text": "Large numbers\n\n\nBernoulli’s solution, more technically:  For any given \\(\\epsilon\\) &gt; 0 and any \\(s\\) &gt; 0, there is a sample size \\(n\\) such that, with \\(w\\) being the number of white pebbles counted in the sample and \\(f\\) being the true fraction of white pebbles in the urn, the probability of \\(w/n\\) falling between \\(f − \\epsilon\\) and \\(f + \\epsilon\\) is greater than \\(1 − s\\).\nthe fraction \\(w/n\\) is the ratio of white to total pebbles we observe in our sample\n\\(\\epsilon\\) (epsilon) captures the fact that we may not see the true urn ratio exactly thanks to random variation in the sample; larger samples help assure that we get closer to the true value, but uncertainty alwa ys remains\n\\(s\\) reflects just how sure we want to be; for example, set \\(s\\) = 0.01 and be 99% percent sure.\nmoral certainty as distinct from absolute certainty of the kind logical deduction provides"
   },
   {
     "objectID": "materials/slides-frame/slides-frame_w08.html",
@@ -513,7 +513,7 @@
     "href": "data/index.html",
     "title": "Data documentation",
     "section": "",
-    "text": "File name\n\n\nType\n\n\nDescription\n\n\nLink to source\n\n\n\n\n\n\nevs2017\n\n\n.Rds\n\n\nEuropean Values Study; Wave 5 (2017-2021)\n\n\nSource\n\n\n\n\nwvs56\n\n\n.Rds\n\n\nWorlds Values Survey; combined Wave 5 and 6\n\n\nSource\n\n\n\n\nosterman\n\n\n.dta\n\n\nReplication data for Österman (2021), based on European Social Survey Rounds 1-9 data\n\n\nData source  Open access article  Supplementary materials\n\n\n\n\nLaddLenz\n\n\n.dta\n\n\nReplication data for Ladd and Lenz (2009), based on British Election Panel Study data. Included in Hainmueller (2012)\n\n\nSource\n\n\n\n\nEverydayTrust\n\n\n.Rds\n\n\nReplication data for Weiss et al. (2021)\n\n\nSource\n\n\n\n\ngaltonpeas\n\n\n.Rds\n\n\nData underpinning a paper presented by Sir Francis Galton to the Royal Institute on February 9, 1877, summarising his experiments on sweet peas in which he compared the size of peas produced by parent plants to those produced by offspring plants.\n\n\nSource\n\n\n\n\ngalton1886\n\n\n.dta\n\n\nSir Francis Galton’s famous data on the heights or parents and their children underpinning his 1886 paper (Galton 1886).\n\n\nSource and more info\n\n\n\n\nValentino17\n\n\n.dta\n\n\nReplication data for Valentino et al. (2019), based on original data collected through YouGov in 11 countries. The original dataset provided by the authors is called imm.bjpols.dta and the original analysis was performed in Stata.\n\n\nData source  Open access article  Supplementary materials\n\n\n\n\nEjrnaes21\n\n\n.dta\n\n\nReplication data for Ejrnæs and Jensen (2021), based on data from the European Social Survey Round 8. The original dataset provided by the authors is called G&O_Final.tab and the original analysis was performed in Stata.\n\n\nData source  Open access article  Supplementary materials\n\n\n\n\nworkout\n\n\n.Rds\n\n\nExample dataset from Mehmetoglu and Mittner (2021); a combined version of the original workout2 and workout3 datasets included in the {astatur} package\n\n\nData source\n\n\n\n\n\n\n\n\n\n\nReferences\n\nEjrnæs, Anders, and Mads Dagnis Jensen. 2021. “Go Your Own Way: The Pathways to Exiting the European Union.” Government and Opposition, February, 1–23. https://doi.org/10.1017/gov.2020.37.\n\n\nGalton, Francis. 1886. “Regression Towards Mediocrity in Hereditary Stature.” The Journal of the Anthropological Institute of Great Britain and Ireland 15: 246–63. https://doi.org/10.2307/2841583.\n\n\nHainmueller, Jens. 2012. “Entropy Balancing for Causal Effects: A Multivariate Reweighting Method to Produce Balanced Samples in Observational Studies.” Political Analysis 20 (1): 25–46. https://doi.org/10.1093/pan/mpr025.\n\n\nLadd, Jonathan McDonald, and Gabriel S. Lenz. 2009. “Exploiting a Rare Communication Shift to Document the Persuasive Power of the News Media.” American Journal of Political Science 53 (2): 394–410. https://doi.org/10.1111/j.1540-5907.2009.00377.x.\n\n\nMehmetoglu, Mehmet, and Matthias Mittner. 2021. Applied Statistics Using R: A Guide for the Social & Natural Sciences. First. Thousand Oaks: SAGE Publications.\n\n\nÖsterman, Marcus. 2021. “Can We Trust Education for Fostering Trust? Quasi-experimental Evidence on the Effect of Education and Tracking on Social Trust.” Social Indicators Research 154 (1): 211–33. https://doi.org/10.1007/s11205-020-02529-y.\n\n\nValentino, Nicholas A., Stuart N. Soroka, Shanto Iyengar, Toril Aalberg, Raymond Duch, Marta Fraile, Kyu S. Hahn, et al. 2019. “Economic and Cultural Drivers of Immigrant Support Worldwide.” British Journal of Political Science 49 (4): 1201–26. https://doi.org/10.1017/S000712341700031X.\n\n\nWeiss, Alexa, Corinna Michels, Pascal Burgmer, Thomas Mussweiler, Axel Ockenfels, and Wilhelm Hofmann. 2021. “Trust in Everyday Life.” Journal of Personality and Social Psychology 121: 95–114. https://doi.org/10.1037/pspi0000334."
+    "text": "File name\n\n\nType\n\n\nDescription\n\n\nLink to source\n\n\n\n\n\n\nevs2017\n\n\n.Rds\n\n\nEuropean Values Study; Wave 5 (2017-2021)\n\n\nSource\n\n\n\n\nwvs56\n\n\n.Rds\n\n\nWorlds Values Survey; combined Wave 5 and 6\n\n\nSource\n\n\n\n\nosterman\n\n\n.dta\n\n\nReplication data for Österman (2021), based on European Social Survey Rounds 1-9 data\n\n\nData source  Open access article  Supplementary materials\n\n\n\n\nLaddLenz\n\n\n.dta\n\n\nReplication data for Ladd and Lenz (2009), based on British Election Panel Study data. Included in Hainmueller (2012)\n\n\nSource\n\n\n\n\nEverydayTrust\n\n\n.Rds\n\n\nReplication data for Weiss et al. (2021)\n\n\nSource\n\n\n\n\nValentino17\n\n\n.dta\n\n\nReplication data for Valentino et al. (2019), based on original data collected through YouGov in 11 countries. The original dataset provided by the authors is called imm.bjpols.dta and the original analysis was performed in Stata.\n\n\nData source  Open access article  Supplementary materials\n\n\n\n\nEjrnaes21\n\n\n.dta\n\n\nReplication data for Ejrnæs and Jensen (2021), based on data from the European Social Survey Round 8. The original dataset provided by the authors is called G&O_Final.tab and the original analysis was performed in Stata.\n\n\nData source  Open access article  Supplementary materials\n\n\n\n\nworkout\n\n\n.Rds\n\n\nExample dataset from Mehmetoglu and Mittner (2021); a combined version of the original workout2 and workout3 datasets included in the {astatur} package\n\n\nData source\n\n\n\n\ngaltonpeas\n\n\n.Rds\n\n\nData underpinning a paper presented by Sir Francis Galton to the Royal Institute on February 9, 1877, summarising his experiments on sweet peas in which he compared the size of peas produced by parent plants to those produced by offspring plants.\n\n\nSource\n\n\n\n\ngalton1886\n\n\n.dta\n\n\nSir Francis Galton’s famous data on the heights or parents and their children underpinning his 1886 paper (Galton 1886).\n\n\nSource and more info\n\n\n\n\nberkeley\n\n\n.csv\n\n\nData underpinning the classic Sex Bias in Graduate Admissions: Data from Berkeley paper by Bickel, Hammel and O’Connell (1975).\n\n\nData source  Original article\n\n\n\n\n\n\n\n\n\n\nReferences\n\nEjrnæs, Anders, and Mads Dagnis Jensen. 2021. “Go Your Own Way: The Pathways to Exiting the European Union.” Government and Opposition, February, 1–23. https://doi.org/10.1017/gov.2020.37.\n\n\nGalton, Francis. 1886. “Regression Towards Mediocrity in Hereditary Stature.” The Journal of the Anthropological Institute of Great Britain and Ireland 15: 246–63. https://doi.org/10.2307/2841583.\n\n\nHainmueller, Jens. 2012. “Entropy Balancing for Causal Effects: A Multivariate Reweighting Method to Produce Balanced Samples in Observational Studies.” Political Analysis 20 (1): 25–46. https://doi.org/10.1093/pan/mpr025.\n\n\nLadd, Jonathan McDonald, and Gabriel S. Lenz. 2009. “Exploiting a Rare Communication Shift to Document the Persuasive Power of the News Media.” American Journal of Political Science 53 (2): 394–410. https://doi.org/10.1111/j.1540-5907.2009.00377.x.\n\n\nMehmetoglu, Mehmet, and Matthias Mittner. 2021. Applied Statistics Using R: A Guide for the Social & Natural Sciences. First. Thousand Oaks: SAGE Publications.\n\n\nÖsterman, Marcus. 2021. “Can We Trust Education for Fostering Trust? Quasi-experimental Evidence on the Effect of Education and Tracking on Social Trust.” Social Indicators Research 154 (1): 211–33. https://doi.org/10.1007/s11205-020-02529-y.\n\n\nValentino, Nicholas A., Stuart N. Soroka, Shanto Iyengar, Toril Aalberg, Raymond Duch, Marta Fraile, Kyu S. Hahn, et al. 2019. “Economic and Cultural Drivers of Immigrant Support Worldwide.” British Journal of Political Science 49 (4): 1201–26. https://doi.org/10.1017/S000712341700031X.\n\n\nWeiss, Alexa, Corinna Michels, Pascal Burgmer, Thomas Mussweiler, Axel Ockenfels, and Wilhelm Hofmann. 2021. “Trust in Everyday Life.” Journal of Personality and Social Psychology 121: 95–114. https://doi.org/10.1037/pspi0000334."
   },
   {
     "objectID": "assessment/index.html",
@@ -1014,6 +1014,62 @@
     "href": "references.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "materials/slides/test.html#code",
+    "href": "materials/slides/test.html#code",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Code",
+    "text": "Code\n\n\na &lt;- rnorm(100, 4, 2)\nsummary(a)\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n-0.9322  3.1077  4.3318  4.3114  5.6926  9.2341 \n\n\n\n\n\nhist(a)"
+  },
+  {
+    "objectID": "materials/slides/test.html#code-smaller",
+    "href": "materials/slides/test.html#code-smaller",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Code {smaller}",
+    "text": "Code {smaller}\n\n\na &lt;- rnorm(100, 4, 2)\nsummary(a)\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n -1.646   2.726   3.925   3.845   4.934   8.173 \n\n\n\n\n\nhist(a)"
+  },
+  {
+    "objectID": "materials/slides/test.html#just-text",
+    "href": "materials/slides/test.html#just-text",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Just text",
+    "text": "Just text\n\n\nThis is my first line long long long msdkannanfiob long long anclao asnivun q gnio nefqg niubnvfiueorqbvd nunhfviuwqbi enjvnqv jbvkqwbf nqkjbfnkl1gv jkcb vorvudfnbv\nThis is the second line\nAnd a third line here"
+  },
+  {
+    "objectID": "materials/slides/test.html#not-outline-just-simple-dice",
+    "href": "materials/slides/test.html#not-outline-just-simple-dice",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Not outline, just simple dice",
+    "text": "Not outline, just simple dice\n\n\none\ntwo\nthree"
+  },
+  {
+    "objectID": "materials/slides/test.html#outline",
+    "href": "materials/slides/test.html#outline",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Outline",
+    "text": "Outline\n\n\n\nGaming chance\nsecond topic\nThird topic\nForth topic\nFifth topic\nSixth\n\n\n\nSeventh\nEighth\nNinth\nTenth\nEleventh\nTwelfth"
+  },
+  {
+    "objectID": "materials/slides/test.html#section-1",
+    "href": "materials/slides/test.html#section-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "",
+    "text": "Gaming chance"
+  },
+  {
+    "objectID": "materials/slides/test.html#final-slides",
+    "href": "materials/slides/test.html#final-slides",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Final slides",
+    "text": "Final slides"
+  },
+  {
+    "objectID": "materials/slides/test.html#references",
+    "href": "materials/slides/test.html#references",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "References",
     "text": "References"
   }
 ]
