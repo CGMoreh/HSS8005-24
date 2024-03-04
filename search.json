@@ -1048,5 +1048,44 @@
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
     "text": "References"
+  },
+  {
+    "objectID": "materials/info/info_w06.html",
+    "href": "materials/info/info_w06.html",
+    "title": "Week 6  Hierarchies",
+    "section": "",
+    "text": "Hierarchical data are ubiquitous in the social and human sciences (and beyond). In fact, almost all the application articles we have engaged with so far in previous labs modelled hierarchical data., and almost all modelled them explicitly as such, applying some multilevel modelling technique. In some cases the hierarchies themselves were of central theoretical importance and played a crucial role in the stated estimand (i.e. “the object of inquiry—(…) the precise quantity about which we marshal data to draw an inference” (see Lundberg, Johnson, and Stewart 2021:532). In others, taking into account the hierarchical nature of the data was meant to improve the precision of the main effect estimates. The importance of accounting for hierarchical dependencies in our models is emphasised by no one else more than Richard McElreath, who, in his important introductory-level book to Bayesian statistics, wants “to convince the reader of something that appears unreasonable: multilevel regression deserves to be the default form of regression” (McElreath 2020:15). According to him, “papers that do not use multilevel models should have to justify not using a multilevel approach”. In this session, we will learn how to think about and fit hierarchical models in R, and we’ll discuss some of the challenges of multilevel modelling and the possible justifications not to use them in certain contexts.\n\nReadings\nTextbook\n\nARM: Chapters 11 (pp. 237-249) and 12 (pp. 251-278)\nTSD: Chapter section 15.2\n\nApplication\n\nÖsterman, Marcus. 2021. ‘Can We Trust Education for Fostering Trust? Quasi-Experimental Evidence on the Effect of Education and Tracking on Social Trust’. Social Indicators Research 154(1):211–33 - (online)\nMitchell, Jeffrey. 2021. “Social Trust and Anti-immigrant Attitudes in Europe: A Longitudinal Multi-Level Analysis.” Frontiers in Sociology 6 (April): 604884 - (online)\nAkaeda, Naoki. 2023. “Trust and the Educational Gap in the Demand for Redistribution: Evidence from the World Values Survey and the European Value Study.” International Sociology 38(3): 290–310 Library access\nWu, Cary. 2021. ‘Education and Social Trust in Global Perspective’. Sociological Perspectives 64(6):1166–86. Available here: Library access\nDingemans, Ellen, and Erik Van Ingen. 2015. ‘Does Religion Breed Trust? A Cross-National Study of the Effects of Religious Involvement, Religious Faith, and Religious Context on Social Trust’. Journal for the Scientific Study of Religion 54(4):739–55. Library access\n\n\n\nFurther readings\n\nARM: Chapters 13 (pp. 279-299), 14 (pp. 301-323) and 15 (pp. 325-342)\n\n\n\n\n\n\nReferences\n\nLundberg, Ian, Rebecca Johnson, and Brandon M. Stewart. 2021. “What Is Your Estimand? Defining the Target Quantity Connects Statistical Evidence to Theory.” American Sociological Review 86(3):532–65. doi: 10.1177/00031224211004187.\n\n\nMcElreath, Richard. 2020. Statistical Rethinking: A Bayesian Course with Examples in R and Stan. Second. Boca Raton: Taylor and Francis, CRC Press.",
+    "crumbs": [
+      "Materials",
+      "Week 6"
+    ]
+  },
+  {
+    "objectID": "materials/notes/draft-notes_w06.html",
+    "href": "materials/notes/draft-notes_w06.html",
+    "title": "Week 6 Worksheet Notes",
+    "section": "",
+    "text": "By the end of the session you will learn how to:"
+  },
+  {
+    "objectID": "materials/notes/draft-notes_w06.html#aims",
+    "href": "materials/notes/draft-notes_w06.html#aims",
+    "title": "Week 6 Worksheet Notes",
+    "section": "",
+    "text": "By the end of the session you will learn how to:"
+  },
+  {
+    "objectID": "materials/notes/draft-notes_w06.html#r-packages",
+    "href": "materials/notes/draft-notes_w06.html#r-packages",
+    "title": "Week 6 Worksheet Notes",
+    "section": "R packages",
+    "text": "R packages\n\nlibrary(tidyverse)\nlibrary(easystats)\nlibrary(gtsummary)\nlibrary(ggformula)\nlibrary(sjlabelled)\nlibrary(ggeffects)\nlibrary(marginaleffects)"
+  },
+  {
+    "objectID": "materials/notes/draft-notes_w06.html#introduction",
+    "href": "materials/notes/draft-notes_w06.html#introduction",
+    "title": "Week 6 Worksheet Notes",
+    "section": "Introduction",
+    "text": "Introduction"
   }
 ]
