@@ -3607,6 +3607,7 @@ window.Quarto = {
   <li><a href="#survey-weights" id="toc-survey-weights" class="nav-link" data-scroll-target="#survey-weights">Survey weights</a></li>
   <li><a href="#variance-estimation-using-robust-clustered-errors" id="toc-variance-estimation-using-robust-clustered-errors" class="nav-link" data-scroll-target="#variance-estimation-using-robust-clustered-errors">Variance estimation using robust clustered errors</a></li>
   </ul></li>
+  <li><a href="#example-2.-osterman2021canwetrusteducationfostering-random-intercept-model" id="toc-example-2.-osterman2021canwetrusteducationfostering-random-intercept-model" class="nav-link" data-scroll-target="#example-2.-osterman2021canwetrusteducationfostering-random-intercept-model">Example 2. <span class="citation" data-cites="Osterman2021CanWeTrustEducationFostering">Österman (2021)</span>: Random intercept model</a></li>
   </ul>
 </nav>
 </nav>
@@ -3938,7 +3939,10 @@ Value |     N | Raw % | Valid % | Cumulative %
 <span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(models, <span class="at">stars =</span> <span class="cn">TRUE</span>, <span class="at">coef_map =</span> coefs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This final model takes us close to the model reported in <span class="citation" data-cites="Osterman2021CanWeTrustEducationFostering">Österman (<a href="#ref-Osterman2021CanWeTrustEducationFostering" role="doc-biblioref">2021</a>)</span>.</p>
-<p>##Éxample 2. <span class="citation" data-cites="Osterman2021CanWeTrustEducationFostering">Österman (<a href="#ref-Osterman2021CanWeTrustEducationFostering" role="doc-biblioref">2021</a>)</span>: Random intercept model</p>
+</section>
+</section>
+<section id="example-2.-osterman2021canwetrusteducationfostering-random-intercept-model" class="level2">
+<h2 class="anchored" data-anchor-id="example-2.-osterman2021canwetrusteducationfostering-random-intercept-model">Example 2. <span class="citation" data-cites="Osterman2021CanWeTrustEducationFostering">Österman (<a href="#ref-Osterman2021CanWeTrustEducationFostering" role="doc-biblioref">2021</a>)</span>: Random intercept model</h2>
 <p><span class="citation" data-cites="Osterman2021CanWeTrustEducationFostering">Österman (<a href="#ref-Osterman2021CanWeTrustEducationFostering" role="doc-biblioref">2021:222</a>)</span> write that “An alternative [to the model above] would be to cluster the standard errors on the country level <strong><em>but such an approach would risk to lead to biased standard errors because of too few clusters</em></strong>”. The number of clusters is an important consideration when choosing to go for a multilevel model. For our aims, we will disregard this warning and go ahead and fit a multilevel model on the <code>osterman</code> data regardless, and we can think about what the differences in the results mean.</p>
 <p>We can fit the model in a multilevel framework using the <code>{lme4}</code> package and the <code>lmer()</code> function.</p>
 <p>Below we begin by looking at the distribution of the <code>cntry</code> variable that codes the countries where respondents are from. Since the European Social Survey is a cross-national survey, it employs a random sampling approach within each participant country and the resulting cross-national dataset is therefore <em>clustered</em> at the country level.</p>
@@ -3991,7 +3995,6 @@ Value |     N | Raw % | Valid % | Cumulative %
 
 
 
-</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
