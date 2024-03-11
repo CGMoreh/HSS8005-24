@@ -1362,5 +1362,16 @@
       "Week 6",
       "Exercises"
     ]
+  },
+  {
+    "objectID": "materials/info/info_w07.html",
+    "href": "materials/info/info_w07.html",
+    "title": "Week 7  Temporalities",
+    "section": "",
+    "text": "We continue exploring hierarchical data structures, but now considering “temporal” aspects of data more closely and the opportunities (and challenges) the pose. The special kind of multilevel data structure we consider here involves repeated measurements on persons (or other units); measurements are therefore clustered within persons (or other units), and predictors can be available at the measurement or person level. Such datasets are often called panel or longitudinal. In settings where overall time trends are important, repeated measurement data are sometimes called time-series cross-sectional. Time-series cross-sectional data typically contain observations at regular time interval, and they commonly exhibit overall time patterns. In many such contexts one must consider how measurements cluster not only in the “temporal” variable but also in the “spatial” variable (e.g. country-year-level observations clustered within countries as well as years), with the potential for predictors at three levels (individual, temporal and spatial). We will consider such three (and higher)-level hierarchical analyses.\n\nReadings\nTextbook\n\nARM: Chapters 11 (pp. 237-249) and 12 (pp. 251-278)\n\nApplication\n\nMitchell, Jeffrey. 2021. “Social Trust and Anti-immigrant Attitudes in Europe: A Longitudinal Multi-Level Analysis.” Frontiers in Sociology 6 (April): 604884 - (online)\nKumove, Michael. 2024. “Take Five? Testing the Cultural and Experiential Theories of Generalised Trust Against Five Criteria.” Political Studies (online)\nDawson, Chris. 2019. “How Persistent Is Generalised Trust?” Sociology 53(3): 590–99. (online)\nBotzen, Katrin. 2015. “Are Joiners Trusters? A Panel Analysis of Participation and Generalized Trust.” Zeitschrift für Soziologie 44(5): 314–29. (online)\nSturgis, Patrick, Roger Patulny, Nick Allum, and Franz Buscha. 2012. Social Connectedness and Generalized Trust: A Longitudinal Perspective. Working Paper. ISER Working Paper Series. (online)",
+    "crumbs": [
+      "Materials",
+      "Week 7"
+    ]
   }
 ]
