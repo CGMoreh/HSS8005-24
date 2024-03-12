@@ -11,7 +11,7 @@
     "href": "plan8.html",
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
-    "text": "Week\nTW\nDate\nTopic\nInfo\nNotes\nLecture\nLabs\nHandouts\n\n\n\n\n\n22\n29 January\nIntroduction\n\n\n\n\n\n\n\nWeek 1\n22\n30 January\nMind your language  A brief introduction to R, RStudio, and other tools of the trade\n\n\n\n\n  \n\n\nWeek 2\n23\n06 February\nEscaping Flatland  Linear models and their limitations\n\n  \n\n\n  \n\n\nWeek 3\n24\n13 February\nCategories  Logistic regression and other generalised linear models\n\n\n\n\n  \n\n\nWeek 4\n25\n20 February\nInteractions  Estimating, graphing and interpreting interaction effects\n\n\n\n\n  \n\n\nWeek 5\n26\n27 February\nBiases  Considerations for causal analysis\n\n  \n\n\n  \n\n\nWeek 6\n27\n05 March\nHierarchies  Multilevel models\n\n\n\n\n  \n\n\nWeek 7\n28\n12 March\nTemporalities  Time series, panel and longitudinal data analysis\n\n\n\n  \n  \n\n\nWeek 8\n29\n19 March\nStudy design  Simulation-based power analysis for study design\n\n  \n\n  \n  \n\n\n\n29\n22 March\nConclusions"
+    "text": "Week\nTW\nDate\nTopic\nInfo\nNotes\nLecture\nLabs\nHandouts\n\n\n\n\n\n22\n29 January\nIntroduction\n\n\n\n\n\n\n\nWeek 1\n22\n30 January\nMind your language  A brief introduction to R, RStudio, and other tools of the trade\n\n\n\n\n  \n\n\nWeek 2\n23\n06 February\nEscaping Flatland  Linear models and their limitations\n\n  \n\n\n  \n\n\nWeek 3\n24\n13 February\nCategories  Logistic regression and other generalised linear models\n\n\n\n\n  \n\n\nWeek 4\n25\n20 February\nInteractions  Estimating, graphing and interpreting interaction effects\n\n\n\n\n  \n\n\nWeek 5\n26\n27 February\nBiases  Considerations for causal analysis\n\n  \n\n\n  \n\n\nWeek 6\n27\n05 March\nHierarchies  Multilevel models\n\n\n\n\n  \n\n\nWeek 7\n28\n12 March\nTemporalities  Time series, panel and longitudinal data analysis\n\n\n\n\n  \n\n\nWeek 8\n29\n19 March\nStudy design  Simulation-based power analysis for study design\n\n  \n\n  \n  \n\n\n\n29\n22 March\nConclusions"
   },
   {
     "objectID": "materials/worksheets/worksheets_w06.html",
@@ -1470,5 +1470,89 @@
     "title": "HSS8005 {{< iconify line-md plus >}}",
     "section": "",
     "text": "References"
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html",
+    "href": "materials/worksheets/worksheets_w07.html",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "",
+    "text": "By the end of the session you will learn how to:\n\nfit random-intercepts and random coefficients models to hierarchical data that contains a temporal dimension\nuse several R packages for modelling time-series data",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html#aims",
+    "href": "materials/worksheets/worksheets_w07.html#aims",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "",
+    "text": "By the end of the session you will learn how to:\n\nfit random-intercepts and random coefficients models to hierarchical data that contains a temporal dimension\nuse several R packages for modelling time-series data",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html#setup",
+    "href": "materials/worksheets/worksheets_w07.html#setup",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "Setup",
+    "text": "Setup\nCreate a worksheet document\nIn Week 1 you set up R and RStudio, and an RProject folder (we called it “HSS8005_labs”) with an .R script and a .qmd or .Rmd document in it (we called these “Lab_1”). Ideally, you saved this on a cloud drive so you can access it from any computer (e.g. OneDrive). You will be working in this folder. If it’s missing, complete Exercise 3 from the Week 1 Worksheet.\nCreate a new Quarto markdown file (.qmd) for this session (e.g. “Lab_7.qmd”) and work in it to complete the exercises and report on your final analysis.",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html#r-packages",
+    "href": "materials/worksheets/worksheets_w07.html#r-packages",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "R packages",
+    "text": "R packages\n\nCode# Just in case we get errors asking that the package repositories be explicitly set when installing new packages:\n\noptions(repos = list(CRAN = \"http://cran.rstudio.com/\"))\n\n# Install and load required packages\n\n# We can use the {pacman} package to easily install and load several packages:\n# ({pacman} itself may need installing if not yet installed)\n\npacman::p_load(\n  tidyverse, sjlabelled, easystats, \n  ggformula, ggeffects, marginaleffects, \n  modelsummary, gtsummary,\n  survey, sandwich, lmtest, lme4,            # for general hierarchical modelling\n  panelr, plm, pglm)                         # for time-series hierarchical data structures",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html#exercise-1",
+    "href": "materials/worksheets/worksheets_w07.html#exercise-1",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFor this exercise, work through the modelling of the Mitchell (2021) dataset carried out in Example 2 in the Notes.\nSpend some time looking over the article and the dataset to understand the variables included.\nThe example in the Notes only focuses on specifying the different multilevel model specifications, but using the steps from the previous week and from Example 1 in the Notes, first create some summary descriptions of the data.",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html#exercise-2",
+    "href": "materials/worksheets/worksheets_w07.html#exercise-2",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nNo return to the models based on the Österman (2021) from the Week 6 worksheet and expand those models to also include the survey “round” variable (essround) as an additional level accounting for variation across rounds/time.\nFor this exercise, you cna combine the code from Exercise 1 above with that developed in Week 6.\nInclude these new models in a summary table to contract the results from the previous models and reflect on the differences.",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
+  },
+  {
+    "objectID": "materials/worksheets/worksheets_w07.html#exercise-3",
+    "href": "materials/worksheets/worksheets_w07.html#exercise-3",
+    "title": "Week 7 Worksheet Exercises",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nUsing the hierarchical modelling functions from Exercise 1 above, develop an analysis using the simple toy dataset on student test scores from Example 1 in the Notes. You are free to construct your own model.",
+    "crumbs": [
+      "Materials",
+      "Week 7",
+      "Exercises"
+    ]
   }
 ]
