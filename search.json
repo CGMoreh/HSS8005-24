@@ -1768,5 +1768,229 @@
       "Week 8",
       "Exercises"
     ]
+  },
+  {
+    "objectID": "materials/slides/w8.html#the-uses-of-simulation-methods",
+    "href": "materials/slides/w8.html#the-uses-of-simulation-methods",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "The uses of simulation methods",
+    "text": "The uses of simulation methods\nSimulating data uses generating random data sets with known properties using code (or some other method). This can be useful in various contexts.\n\n\nTo better understand our models. Probability models mimic variation in the world, and the tools of simulation can help us better understand this variation. Patterns of randomness are contrary to normal human thinking and simulation helps in training our intuitions about averages and variation\n\nTo run statistical analyses (e.g., simulating a null distribution against which to compare a sample)\n\nTo approximate the sampling distribution of data and propagate this to the sampling distribution of statistical estimates and procedures"
+  },
+  {
+    "objectID": "materials/slides/w8.html#distribution-functions",
+    "href": "materials/slides/w8.html#distribution-functions",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Distribution functions",
+    "text": "Distribution functions\nBase R functions:\n\nrnorm(): sampling from a normal distribution\nrunif(): sampling from a uniform distribution\nrbinom(): sampling from a binomial distribution\nrpois(): sampling from a Poisson distribution\n\n(Other distributions are also available)\n\nsample(): sampling elements from an R object with or without replacement\nreplicate(): often plays a role in conjunction with sampling functions; it is used to evaluate an expression N number of times repeatedly\n\nFrom non-base packages:\n\n\nMASS::mvtnorm(): multivariate normal; sampling multiple variables with a known correlation structure (i.e., we can tell R how variables should be correlated with one another) and normally distributed errors"
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-uniform-distribution",
+    "href": "materials/slides/w8.html#sampling-from-a-uniform-distribution",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a uniform distribution",
+    "text": "Sampling from a uniform distribution\nThe runif function returns some number (n) of random numbers from a uniform distribution with a range from \\(a\\) (min) to \\(b\\) (max) such that \\(X\\sim\\mathcal U(a,b)\\) (verbally, \\(X\\) is sampled from a uniform distribution with the parameters \\(a\\) and \\(b\\)), where \\(-\\infty &lt; a &lt; b &lt; \\infty\\) (verbally, \\(a\\) is greater than negative infinity but less than \\(b\\), and \\(b\\) is finite). The default is to draw from a standard uniform distribution (i.e., \\(a = 0\\) and \\(b = 1\\)):\n\n\n# Sample a vector of ten numbers and store the results in the object `rand_unifs`\n# Note that the numbers will be different each time we re-run the `runif` function above.\n# If we want to recreate the same sample, we should set a `seed` number first\n\nrand_unifs &lt;- runif(n = 10000, min = 0, max = 1);\n\n\n\n\n\nThe first 40 numbers from the sample are:\n\n\n [1] 0.890188523 0.591166379 0.399648855 0.972892989 0.101147806 0.262360107\n [7] 0.181185795 0.474828251 0.250801761 0.511658177 0.738156238 0.628122433\n[13] 0.365605151 0.045501343 0.230871157 0.460637787 0.250218366 0.492162029\n[19] 0.856357203 0.566203399 0.147660543 0.383201637 0.093662443 0.001523262\n[25] 0.111942857 0.936084684 0.014159835 0.679044370 0.960550269 0.389671817\n[31] 0.849250339 0.568449457 0.938294313 0.012541510 0.262154853 0.101214718\n[37] 0.090681904 0.984074978 0.031501658 0.954211052 0.792093656 0.284537536\n[43] 0.661775433 0.281384660 0.681993441 0.760708201 0.130558664 0.793561081\n[49] 0.703461216 0.427160911\n\n\nTo visualise the entire sample, we can plot it on a histogram:"
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-normal-distribution",
+    "href": "materials/slides/w8.html#sampling-from-a-normal-distribution",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a normal distribution",
+    "text": "Sampling from a normal distribution\nThe rnorm function returns some number (n) of randomly generated values given a set mean (\\(\\mu\\); mean) and standard deviation (\\(\\sigma\\); sd), such that \\(X\\sim\\mathcal N(\\mu,\\sigma^2)\\). The default is to draw from a standard normal (a.k.a., Gaussian) distribution (i.e., \\(\\mu = 0\\) and \\(\\sigma = 1\\)):\n\n\nrand_norms_10000 &lt;- rnorm(n = 10000, mean = 0, sd = 1)\n\nprint(rand_norms_10000[1:20])\n\n\n\n [1] -0.74432228  0.33997728  0.58149118  0.05342097 -0.65516320  0.30875826\n [7]  0.42112635  0.97564581  1.80259443 -0.64037078  0.23910519 -0.03569876\n[13] -0.76900149 -0.54166882 -0.02412268 -0.61409177 -1.12341512 -1.54125305\n[19]  0.16835280 -1.26876048"
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-normal-distribution-1",
+    "href": "materials/slides/w8.html#sampling-from-a-normal-distribution-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a normal distribution",
+    "text": "Sampling from a normal distribution\n\nHistograms allow us to check how samples from the same distribution might vary.\nExercise: Compare the above distribution with a normal distribution that had a standard deviation of 2 instead of 1.\nSample 10,000 new values in rnorm with sd = 2 instead of sd = 1 and create a new histogram with hist.\nTo see what the distribution of sampled data might look like given a low sample size (e.g., 10), repeat the process of sampling from rnorm(n = 10, mean = 0, sd = 1) multiple times and look at the shape of the resulting histogram."
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-poisson-distribution",
+    "href": "materials/slides/w8.html#sampling-from-a-poisson-distribution",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a Poisson distribution",
+    "text": "Sampling from a Poisson distribution\nA Poisson process describes events happening with some given probability over an area of time or space such that \\(X\\sim Poisson(\\lambda)\\), where the rate parameter \\(\\lambda\\) is both the mean and variance of the Poisson distribution (note that by definition, \\(\\lambda &gt; 0\\), and although \\(\\lambda\\) can be any positive real number, data are always integers, as with count data).\n\nSampling from a Poisson distribution can be done in R with rpois, which takes only two arguments specifying the number of values to be returned (n) and the rate parameter (lambda). There are no default values for rpois.\n\n\nrand_poissons &lt;- rpois(n = 10, lambda = 1.5)\n\nprint(rand_poissons)\n\n\n\n [1] 2 0 1 1 1 0 0 1 1 2"
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-poisson-distribution-1",
+    "href": "materials/slides/w8.html#sampling-from-a-poisson-distribution-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a Poisson distribution",
+    "text": "Sampling from a Poisson distribution\nA histogram of a large number of values to see the distribution when \\(\\lambda = 4.5\\):\n\n\nrand_poissons_10000 &lt;- rpois(n = 10000, lambda = 4.5)"
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-binomial-distribution",
+    "href": "materials/slides/w8.html#sampling-from-a-binomial-distribution",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a binomial distribution",
+    "text": "Sampling from a binomial distribution\n\nA binomial distribution describes the number of successes for some number of independent trials (\\(\\Pr(success) = p\\)).\nThe rbinom function returns the number of successes after size trials, in which the probability of success in each trial is prob.\nSampling from a binomial distribution in R with rbinom is a bit more complex than using runif, rnorm, or rpois.\nLike those previous functions, the rbinom function returns some number (n) of random numbers, but the arguments and output can be slightly confusing at first."
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-binomial-distribution-1",
+    "href": "materials/slides/w8.html#sampling-from-a-binomial-distribution-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a binomial distribution",
+    "text": "Sampling from a binomial distribution\n\nFor example, suppose we want to simulate the flipping of a fair coin 1000 times, and we want to know how many times that coin comes up heads (success). We can do this with the following code:\n\n\n\ncoin_flips &lt;- rbinom(n = 1, size = 1000, prob = 0.5)\n\ncoin_flips\n\n\n\n[1] 491\n\n\n\n\nThe above result shows that the coin came up heads 491 times. But note the (required) argument n. This allows us to set the number of sequences to run.\nIf we instead set n = 2, then this could simulate the flipping of a fair coin 1000 times once to see how many times heads comes up, then repeating the whole process a second time to see how many times heads comes up again (or, if it is more intuitive, the flipping of two separate fair coins 1000 times at the same time)."
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-binomial-distribution-2",
+    "href": "materials/slides/w8.html#sampling-from-a-binomial-distribution-2",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a binomial distribution",
+    "text": "Sampling from a binomial distribution\n\n\ncoin_flips_2 &lt;- rbinom(n = 2, size = 1000, prob = 0.5)\n\ncoin_flips_2\n\n\n\n[1] 496 506\n\n\n\n\nA coin was flipped 1000 times and returned 496 heads, and then another fair coin was flipped 1000 times and returned 506 heads.\nAs with the rnorm and runif functions, we can check to see what the distribution of the binomial function looks like if we repeat this process."
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-from-a-binomial-distribution-3",
+    "href": "materials/slides/w8.html#sampling-from-a-binomial-distribution-3",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling from a binomial distribution",
+    "text": "Sampling from a binomial distribution\n\nSuppose that we want to see the distribution of the number of times heads comes up after 1000 flips. We can simulate the process of flipping 1000 times in a row with 10000 different coins:\n\n\n\ncoin_flips_10000 &lt;- rbinom(n = 10000, size = 1000, prob = 0.5)"
+  },
+  {
+    "objectID": "materials/slides/w8.html#random-sampling-using-sample",
+    "href": "materials/slides/w8.html#random-sampling-using-sample",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Random sampling using sample\n",
+    "text": "Random sampling using sample\n\n\nSometimes it is useful to sample a set of values from a vector or list. The R function sample is very flexible for sampling a subset of numbers or elements from some structure (x) in R according to some set probabilities (prob).\nElements can be sampled from x some number of times (size) with or without replacement (replace), though an error will be returned if the size of the sample is larger than x but replace = FALSE (default).\nSuppose we want to ask R to pick a random number from one to ten with equal probability:\n\n\n\nrand_number_1 &lt;- sample(x = 1:10, size = 1)\n\nprint(rand_number_1)\n\n\n\n[1] 6"
+  },
+  {
+    "objectID": "materials/slides/w8.html#random-sampling-using-sample-1",
+    "href": "materials/slides/w8.html#random-sampling-using-sample-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Random sampling using sample\n",
+    "text": "Random sampling using sample\n\n\nWe can increase the size of the sample to 10:\n\n\n\nrand_number_10 &lt;- sample(x = 1:10, size = 10)\nprint(rand_number_10)\n\n\n\n [1]  9  5  1 10  6  8  7  3  2  4\n\n\n\n\nNote that all numbers from 1 to 10 have been sampled, but in a random order. This is because the default is to sample without replacement, meaning that once a number has been sampled for the first element in rand_number_10, it is no longer available to be sampled again.\nWe can change this and allow for sampling with replacement:\n\n\n\nrand_number_10_r &lt;- sample(x = 1:10, size = 10, replace = TRUE)\n\nprint(rand_number_10_r)\n\n\n\n [1] 10  9  4  7  9  4  6 10  2  1\n\n\n\n\nNote that the numbers {4, 9, 10} are now repeated in the set of randomly sampled values above."
+  },
+  {
+    "objectID": "materials/slides/w8.html#random-sampling-using-sample-2",
+    "href": "materials/slides/w8.html#random-sampling-using-sample-2",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Random sampling using sample\n",
+    "text": "Random sampling using sample\n\n\nSo far, because we have not specified a probability vector prob, the function assumes that every element in 1:10 is sampled with equal probability\nHere’s an example in which the numbers 1-5 are sampled with a probability of 0.05, while the numbers 6-10 are sampled with a probability of 0.15, thereby biasing sampling toward larger numbers; we always need to ensure that these probabilities need to sum to 1.\n\n\n\nprob_vec      &lt;- c( rep(x = 0.05, times = 5), rep(x = 0.15, times = 5))\n\nrand_num_bias &lt;- sample(x = 1:10, size = 10, replace = TRUE, prob = prob_vec)\n\nprint(rand_num_bias)\n\n\n\n [1] 10  8  1 10  7  8  4 10 10  5"
+  },
+  {
+    "objectID": "materials/slides/w8.html#sampling-random-characters-from-a-list",
+    "href": "materials/slides/w8.html#sampling-random-characters-from-a-list",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Sampling random characters from a list",
+    "text": "Sampling random characters from a list\n\nWe can also sample characters from a list of elements; it is no different than sampling numbers\nFor example, if we want to create a simulated data set that includes three different species of some plant or animal, we could create a vector of species identities from which to sample:\n\n\n\nspecies &lt;- c(\"species_A\", \"species_B\", \"species_C\");\n\n\n\n\n\n\nWe can then sample from these three possible categories. For example:\n\n\n\nsp_sample &lt;- sample(x = species, size = 24, replace = TRUE, \n                    prob = c(0.5, 0.25, 0.25))\n\n\n\n\n\n\nWhat did the code above do?\n\n\n\n [1] \"species_C\" \"species_B\" \"species_A\" \"species_B\" \"species_A\" \"species_B\"\n [7] \"species_B\" \"species_B\" \"species_A\" \"species_B\" \"species_A\" \"species_B\"\n[13] \"species_A\" \"species_C\" \"species_A\" \"species_A\" \"species_B\" \"species_A\"\n[19] \"species_A\" \"species_A\" \"species_B\" \"species_B\" \"species_A\" \"species_B\""
+  },
+  {
+    "objectID": "materials/slides/w8.html#simulating-data-with-known-correlations",
+    "href": "materials/slides/w8.html#simulating-data-with-known-correlations",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Simulating data with known correlations",
+    "text": "Simulating data with known correlations\n\nWe can generate variables \\(X_{1}\\) and \\(X_{2}\\) that have known correlations \\(\\rho\\) with with one another.\nFor example: two standard normal random variables with a sample size of 10000, and with correlation between them of 0.3:\n\n\n\nN   &lt;- 10000\nrho &lt;- 0.3\nx1  &lt;- rnorm(n = N, mean = 0, sd = 1)\nx2  &lt;- (rho * x1) + sqrt(1 - rho*rho) * rnorm(n = N, mean = 0, sd = 1)\n\n\n\n\n\n\nThese variables are generated by first simulating the sample \\(x_{1}\\) (x1 above) from a standard normal distribution. Then, \\(x_{2}\\) (x2 above) is calculated as\n\n\\(x_{2} = \\rho x_{1} + \\sqrt{1 - \\rho^{2}}x_{rand}\\),\nwhere \\(x_{rand}\\) is a sample from a normal distribution with the same variance as \\(x_{1}\\)."
+  },
+  {
+    "objectID": "materials/slides/w8.html#simulating-data-with-known-correlations-1",
+    "href": "materials/slides/w8.html#simulating-data-with-known-correlations-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Simulating data with known correlations",
+    "text": "Simulating data with known correlations\n\nWe can generate variables \\(X_{1}\\) and \\(X_{2}\\) that have known correlations \\(\\rho\\) with with one another.\nFor example: two standard normal random variables with a sample size of 10000, and with correlation between them of 0.3:\n\n\n\nN   &lt;- 10000\nrho &lt;- 0.3\nx1  &lt;- rnorm(n = N, mean = 0, sd = 1)\nx2  &lt;- (rho * x1) + sqrt(1 - rho*rho) * rnorm(n = N, mean = 0, sd = 1)\n\n\n\n\n\n\nDoes the correlation equal rho (with some sampling error)?\n\n\n\ncor(x1, x2)\n\n\n\n[1] 0.2967485"
+  },
+  {
+    "objectID": "materials/slides/w8.html#simulating-data-with-known-correlations-2",
+    "href": "materials/slides/w8.html#simulating-data-with-known-correlations-2",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Simulating data with known correlations",
+    "text": "Simulating data with known correlations\n\nThere is a more efficient way to generate any number of variables with different variances and correlations to one another.\nWe need to use the MASS library, which can be installed and loaded as below:\nIn the MASS library, the function mvrnorm can be used to generate any number of variables for a pre-specified covariance structure."
+  },
+  {
+    "objectID": "materials/slides/w8.html#example-simulating-a-regression-design",
+    "href": "materials/slides/w8.html#example-simulating-a-regression-design",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Example: simulating a regression design",
+    "text": "Example: simulating a regression design\n\nassume that we expect that people’s attitude will be more negative after seeing a visual rather than text message if the focus is internal (i.e. the message is about yourself) because it might be difficult to imagine that oneself would get cancer after reading a text but seeing a picture might cause fear regardless\nfor the external focus on the other hand, we expect a more negative attitude after reading a text as compared to seeing a picture, as it might have more impact on attitude to imagine a loved one get hurt than seeing a stranger in a picture suffering from the consequences of second-hand smoking\nwe expect that the internal focus messages will be related to lower attitudes compared to the external focus messages on average but we expect no main-effect of picture vs. text-messages"
+  },
+  {
+    "objectID": "materials/slides/w8.html#example-simulating-a-regression-design-1",
+    "href": "materials/slides/w8.html#example-simulating-a-regression-design-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Example: simulating a regression design",
+    "text": "Example: simulating a regression design\n\nvisualize some rough means that show the desired behavior that we described in words earlier and see where we are going\nwe could make the overall mean of the internal focus groups (group_TI and group_VI) 20 and the mean of the external groups (group_TE and group_VE) 50 (this would already reflect the main-effect but also a belief that the smoking-attitudes are on average quite negative as we assume both means to be on the low end of the scale)\nassume that the mean of group_TI is 30 while the mean of group_VI is 10 and we could assume that the mean of group_TE is 40 and the mean of group_VE is 60"
+  },
+  {
+    "objectID": "materials/slides/w8.html#section-1",
+    "href": "materials/slides/w8.html#section-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "",
+    "text": "focus &lt;- rep(c(\"internal\", \"external\"), each = 2)\nmedia &lt;- rep(c(\"text\", \"visual\"), times = 2)\nmean_TI &lt;- 43\nmean_VI &lt;- 40\nmean_TE &lt;- 45\nmean_VE &lt;- 47\n\npd &lt;- data.frame(score = c(mean_TI, mean_VI, mean_TE, mean_VE), focus = focus, media = media)\n\ninteraction.plot(pd$focus, pd$media, pd$score, ylim = c(0,100))"
+  },
+  {
+    "objectID": "materials/slides/w8.html#section-2",
+    "href": "materials/slides/w8.html#section-2",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "",
+    "text": "focus &lt;- rep(c(\"internal\", \"external\"), each = 2)\nmedia &lt;- rep(c(\"text\", \"visual\"), times = 2)\nmean_TI &lt;- 43\nmean_VI &lt;- 40\nmean_TE &lt;- 45\nmean_VE &lt;- 47\n\npd &lt;- data.frame(score = c(mean_TI, mean_VI, mean_TE, mean_VE), focus = focus, media = media)\n\ninteraction.plot(pd$focus, pd$media, pd$score, ylim = c(0,100))"
+  },
+  {
+    "objectID": "materials/slides/w8.html#example-simulating-a-regression-design-2",
+    "href": "materials/slides/w8.html#example-simulating-a-regression-design-2",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Example: simulating a regression design",
+    "text": "Example: simulating a regression design\n\nin the new example there is a difference between the two media groups on average but it is only .50 points, so arguably it is small enough to represent the assumption of no effect, as in real-life no effect in terms of a difference being actually 0 is rather rare\ncome up with some reasonable standard-deviation; if we start at 50 and we want most people to be &lt; 80, we can set the 2-SD bound at 80 to get a standard-deviation of 15 (80-50)/2.\nlet’s assume that each of our groups has a standard-deviation of 15 points.\n\ngroup_TI = normal(n, 43, 15)\ngroup_VI = normal(n, 40, 15)\ngroup_TE = normal(n, 45, 15)\ngroup_VE = normal(n, 47, 15)"
+  },
+  {
+    "objectID": "materials/slides/w8.html#example-simulating-a-regression-design-3",
+    "href": "materials/slides/w8.html#example-simulating-a-regression-design-3",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Example: simulating a regression design",
+    "text": "Example: simulating a regression design\n\n\nn &lt;- 1e5\ngroup_TI &lt;-  rnorm(n, 43, 15)\ngroup_VI &lt;-  rnorm(n, 40, 15)\ngroup_TE &lt;-  rnorm(n, 45, 15)\ngroup_VE &lt;-  rnorm(n, 47, 15)\n\nparticipant &lt;- c(1:(n*4))\nfocus &lt;- rep(c(\"internal\", \"external\"), each = n*2)\nmedia &lt;- rep(c(\"text\", \"visual\"), each = n, times = 2)\n\ndata &lt;- data.frame(participant = participant, focus = focus, media = media, score = c(group_TI, group_VI, group_TE, group_VE))\n\nsummary(data)\n\n\n\n  participant       focus              media               score       \n Min.   :1e+00   Length:400000      Length:400000      Min.   :-26.82  \n 1st Qu.:1e+05   Class :character   Class :character   1st Qu.: 33.41  \n Median :2e+05   Mode  :character   Mode  :character   Median : 43.69  \n Mean   :2e+05                                         Mean   : 43.72  \n 3rd Qu.:3e+05                                         3rd Qu.: 54.00  \n Max.   :4e+05                                         Max.   :115.45"
+  },
+  {
+    "objectID": "materials/slides/w8.html#ready-for-power-analysis",
+    "href": "materials/slides/w8.html#ready-for-power-analysis",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Ready for power-analysis",
+    "text": "Ready for power-analysis\n\nSome additional assumptions: suppose we have enough funding for a sizeable data collection and the aim is to ensure that we do not draw unwarranted conclusions from the research\nWe should then set the alpha-level at a more conservative value (\\(\\alpha = .001\\)); with this, we expect to draw non-realistic conclusions in the interaction effect in only about 1 in every 1,000 experiments\nWe also want to be sure that we do detect an existing effect and keep our power high at 95%; with this, we expect that if there is an interaction effect, we would detect it in 19 out of 20 cases (only miss it in 1 out of 20, or 5%)\nRunning the power-simulation can be very memory-demanding and the code can run a very long time to complete; it’s advised to start from various low-resolution sample-sizes (e.g. n = 10, n = 100, n = 200, etc.) to get a rough idea of where we can expect our loop to end. Then, the search can be made more specific in order to identify a more precise sample size."
+  },
+  {
+    "objectID": "materials/slides/w8.html#ready-for-power-analysis-1",
+    "href": "materials/slides/w8.html#ready-for-power-analysis-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Ready for power-analysis",
+    "text": "Ready for power-analysis\n\n\nset.seed(1)\nn_sims &lt;- 1000 # we want 1000 simulations\np_vals &lt;- c()\npower_at_n &lt;- c(0) # this vector will contain the power for each sample-size (it needs the initial 0 for the while-loop to work)\nn &lt;- 100 # sample-size and start at 100 as we can be pretty sure this will not suffice for such a small effect\nn_increase &lt;- 100 # by which stepsize should n be increased\ni &lt;- 2\n\npower_crit &lt;- .95\nalpha &lt;- .001\n\nwhile(power_at_n[i-1] &lt; power_crit){\n  for(sim in 1:n_sims){\n    group_TI &lt;-  rnorm(n, 43, 15)\n    group_VI &lt;-  rnorm(n, 40, 15)\n    group_TE &lt;-  rnorm(n, 45, 15)\n    group_VE &lt;-  rnorm(n, 47, 15)\n    \n    participant &lt;- c(1:(n*4))\n    focus &lt;- rep(c(\"internal\", \"external\"), each = n*2)\n    media &lt;- rep(c(\"text\", \"visual\"), each = n, times = 2)\n    \n    data &lt;- data.frame(participant = participant, focus = focus, media = media, score = c(group_TI, group_VI, group_TE, group_VE))\n    data$media_sum_num &lt;- ifelse(data$media == \"text\", 1, -1) # apply sum-to-zero coding\n    data$focus_sum_num &lt;- ifelse(data$focus == \"external\", 1, -1) \n    lm_int &lt;- lm(score ~ 1 + focus_sum_num + media_sum_num + focus_sum_num:media_sum_num, data = data) # fit the model with the interaction\n    lm_null &lt;- lm(score ~ 1 + focus_sum_num + media_sum_num, data = data) # fit the model without the interaction\n    p_vals[sim] &lt;- anova(lm_int, lm_null)$`Pr(&gt;F)`[2] # put the p-values in a list\n  }\n    print(n)\n    power_at_n[i] &lt;- mean(p_vals &lt; alpha) # check power (i.e. proportion of p-values that are smaller than alpha-level of .10)\n    names(power_at_n)[i] &lt;- n\n    n &lt;- n+n_increase # increase sample-size by 100 for low-resolution testing first\n    i &lt;- i+1 # increase index of the while-loop by 1 to save power and cohens d to vector\n}\n\n\n\n[1] 100\n[1] 200\n[1] 300\n[1] 400\n[1] 500\n[1] 600\n[1] 700\n[1] 800\n[1] 900\n\npower_at_n &lt;- power_at_n[-1] # delete first 0 from the vector"
+  },
+  {
+    "objectID": "materials/slides/w8.html#example-simulating-a-regression-design-4",
+    "href": "materials/slides/w8.html#example-simulating-a-regression-design-4",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Example: simulating a regression design",
+    "text": "Example: simulating a regression design\nWe can plot the results form the power-simulation:\n\n\nAt roughly 900 participants we observe sufficient power"
+  },
+  {
+    "objectID": "materials/slides/w8.html#outline",
+    "href": "materials/slides/w8.html#outline",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Outline",
+    "text": "Outline\n\n\nStatistical power\nData simulation\nStatistical power analysis via data simulation"
+  },
+  {
+    "objectID": "materials/slides/w8.html#statistical-power-1",
+    "href": "materials/slides/w8.html#statistical-power-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Statistical power",
+    "text": "Statistical power\n\nStatistical power is defined as the probability, before a study is performed, that a particular comparison will achieve statistical significance at some predetermined level (typically a p-value below 0.05), given some assumed true effect size\nIf a certain effect of interest exists (e.g. a difference between two groups) power is the chance that we actually find the effect in a given study\nA power analysis is performed by first hypothesizing an effect size, then making some assumptions about the variation in the data and the sample size of the study to be conducted, and finally using probability calculations to determine the chance of the p-value being below the threshold\nThe conventional view is that you should avoid low-power studies because they are unlikely to succeed\nThere are several problems with this view, but it’s often required by research funding bodies"
+  },
+  {
+    "objectID": "materials/slides/w8.html#simulating-a-regression-design-1",
+    "href": "materials/slides/w8.html#simulating-a-regression-design-1",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Simulating a regression design",
+    "text": "Simulating a regression design\n\nWe can use simulation to test rather complex study designs\nImagine you are interested in students attitude towards smoking and how it depends on the medium of the message and the focus of the message\nWe want to know whether people’s attitude is different after seeing a visual anti-smoking message (these pictures on the package) vs. a text-message (the text belonging to that picture)\nWe are interested in whether the attitude that people report is different after seeing a message that regards the consequences on other people (e.g. smoking can harm your loved ones) as compared to yourself (smoking can cause cancer)\n\nStudy design:\nDV: attitude towards smoking (0-100) IV1: medium (text vs. visual) IV2: focus (internal vs. external)\nThis is, there are 4 groups:\n\ngroup_TI will receive text-messages that are internal\ngroup_TE will receive text-messages that are external\ngroup_VI will receive visual messages that are internal\ngroup_VE will receive visual messages that are external"
+  },
+  {
+    "objectID": "materials/slides/w8.html#section",
+    "href": "materials/slides/w8.html#section",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "",
+    "text": "focus &lt;- rep(c(\"internal\", \"external\"), each = 2)\nmedia &lt;- rep(c(\"text\", \"visual\"), times = 2)\nmean_TI &lt;- 50\nmean_VI &lt;- 20\nmean_TE &lt;- 30\nmean_VE &lt;- 60\n\npd &lt;- data.frame(score = c(mean_TI, mean_VI, mean_TE, mean_VE), focus = focus, media = media)\n\ninteraction.plot(pd$focus, pd$media, pd$score, ylim = c(0,100))"
+  },
+  {
+    "objectID": "materials/slides/w8.html#outline-background-iframehttpscgmoreh.github.iowebslidesparticles-bkgparticles.html-background-opacity0.2-smallerfalse",
+    "href": "materials/slides/w8.html#outline-background-iframehttpscgmoreh.github.iowebslidesparticles-bkgparticles.html-background-opacity0.2-smallerfalse",
+    "title": "HSS8005 {{< iconify line-md plus >}}",
+    "section": "Outline {background-iframe=https://cgmoreh.github.io/webslides/particles-bkg/particles.html background-opacity=0.2, smaller=FALSE}",
+    "text": "Outline {background-iframe=https://cgmoreh.github.io/webslides/particles-bkg/particles.html background-opacity=0.2, smaller=FALSE}\n\n\nStatistical power\nData simulation\nStatistical power analysis via data simulation"
   }
 ]
