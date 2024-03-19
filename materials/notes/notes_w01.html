@@ -3691,11 +3691,17 @@ vertical-align: -.125em;
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">Notes</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/notes/notes_w08.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notes</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">Exercises</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../materials/worksheets/worksheets_w08.qmd" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
  <span class="menu-text">Handout</span>
   </li>
@@ -3717,7 +3723,10 @@ vertical-align: -.125em;
   <li><a href="#r-data-types-and-structures" id="toc-r-data-types-and-structures" class="nav-link" data-scroll-target="#r-data-types-and-structures"><strong>R</strong> data types and structures</a></li>
   <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames">Data frames</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a>
+  <ul class="collapse">
+  <li><a href="#installing-and-attaching-packages" id="toc-installing-and-attaching-packages" class="nav-link" data-scroll-target="#installing-and-attaching-packages">Installing and attaching packages</a></li>
+  </ul></li>
   <li><a href="#about-the-tidyverse" id="toc-about-the-tidyverse" class="nav-link" data-scroll-target="#about-the-tidyverse">About the <code>Tidyverse</code></a>
   <ul class="collapse">
   <li><a href="#data-frames-and-tibbles" id="toc-data-frames-and-tibbles" class="nav-link" data-scroll-target="#data-frames-and-tibbles">Data frames and ‘tibbles’</a></li>
@@ -3920,27 +3929,62 @@ Tip
 <p>There are several toy data frames built into R, and we can have a look at one to see how it looks like. You can get a list of the available built-in datasets and their brief descriptions with the <code>data()</code> command.</p>
 <p>For example, the <code>mtcars</code> data frame is built into R and so you can access it without loading any files. To get the dimensions, you can use <code>dim()</code>, <code>nrow()</code>, and <code>ncol()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mtcars)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(mtcars)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32 11</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11</code></pre>
+</div>
 </div>
 <p>We can also load the dataset into our Environment and look at it manually:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The new object has appeared in the Environment under a new section called Data. We can click on it and the dataset will open up in the Source pane. What do you think this dataset is about?</p>
 <p>You can select each column/variable from the data frame use the <code>$</code>, turning it into a vector:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>wt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>wt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
+[13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
+[25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
+</div>
 </div>
 <p>You can now treat this just like a vector, with the subsets and all.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>wt[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>wt[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.62</code></pre>
+</div>
 </div>
 <p>We can subset to the first/last k rows of a data frame</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt qsec vs am gear carb
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
+Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
+Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
+Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
+Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
+</div>
 </div>
 <p>There are various ways in which one can further subset and wrangle vectors and data frames using base R functions, but the <code>{tidyverse}</code> and other user-written packages provide more functionality and ease of use. In this course, we will rely mostly on these.</p>
 </section>
@@ -3950,59 +3994,89 @@ Tip
 </section>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>Instead of programming your own functions in the <strong>R</strong> language, you can rely on functions written by other people and bundled within a package that performs some set task. There are a large number of reliable, tested and oft-used packages containing functions that are particularly useful for social scientists.</p>
-<p>Some particularly useful packages: - the <code>tidyverse</code> bundle of packages, which includes the <code>dplyr</code> package (for data manipulation) and additional R packages for reading in (<code>readr</code>), transforming (<code>tidyr</code>) and visualizing (<code>ggplot2</code>) datasets. - to import datasets in non-native formats and to manage attached labels (a concept familiar from other statistical packages but foreign to <strong><em>R</em></strong>), load the <code>sjlabelled</code> package (an alternative to <code>haven</code> and <code>labelled</code>, which work in a similar way but provide less functionality) - the <code>sjmisc</code> package contains very useful functions for undertaking data transformations on labelled variables (recoding, grouping, missing values, etc); also has some useful tabulation functions - the <code>sjPlot</code> package contains functions for graphing and tabulating results from regression models</p>
-<p>Packages are often available from the <em>Comprehensive R Archive Network</em> (CRAN) or private repositories such as <em>Bioconductor</em>, <em>GitHub</em> etc. Packages made available on CRAN can be installed using the command <code>install.packages(&quot;packagename&quot;)</code>. Once the package/library is installed (i.e. it is sitting somewhere on your computer), we then need to <em>load</em> it to the current R session using the command <code>library(packagename)</code>.</p>
+<p>Instead of programming your own functions in the <strong>R</strong> language, you can rely on functions written by other people and bundled within a package that performs some set task.</p>
+<p>When you install <code>R</code>, a set of “packages” containing various functions are also installed by default. These packages make up what is colloquially referred to as <em>base R</em>. Functions from these packages can be used straight away and they cannot be deleted or installed separately. The functionality of these <em>base R</em> packages is updated with each new edition of <code>R</code>, but not in between new releases of the software. The code below lists the names of all the packages in <em>base R</em>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">installed.packages</span>()[ ,<span class="st">&quot;Priority&quot;</span>] <span class="sc">==</span> <span class="st">&quot;base&quot;</span>, ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;base&quot;      &quot;compiler&quot;  &quot;datasets&quot;  &quot;graphics&quot;  &quot;grDevices&quot; &quot;grid&quot;     
+ [7] &quot;methods&quot;   &quot;parallel&quot;  &quot;splines&quot;   &quot;stats&quot;     &quot;stats4&quot;    &quot;tcltk&quot;    
+[13] &quot;tools&quot;     &quot;utils&quot;    </code></pre>
+</div>
+</div>
+<p>We see in the list that there is also a package called “base”, which contains 1273 elementary functions. However, when we refer to <em>base R</em>, we usually mean the functions from all the 14 packages listed above.</p>
+<p>Apart from these packages that come pre-installed and pre-loaded with our <code>R</code> installation, there are also a number of “recommended” packages, which can be thought of as an <em>extended base R</em>. These packages also come pre-installed in binary distributions of <code>R</code>, but they need to be loaded in order to make their functions available for use. These “recommended” packages are:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(<span class="fu">which</span>(<span class="fu">installed.packages</span>()[ ,<span class="st">&quot;Priority&quot;</span>] <span class="sc">==</span> <span class="st">&quot;recommended&quot;</span>, ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] &quot;Matrix&quot;     &quot;mgcv&quot;       &quot;nlme&quot;       &quot;boot&quot;       &quot;class&quot;     
+ [6] &quot;cluster&quot;    &quot;codetools&quot;  &quot;foreign&quot;    &quot;KernSmooth&quot; &quot;lattice&quot;   
+[11] &quot;MASS&quot;       &quot;Matrix&quot;     &quot;mgcv&quot;       &quot;nlme&quot;       &quot;nnet&quot;      
+[16] &quot;rpart&quot;      &quot;spatial&quot;    &quot;survival&quot;  </code></pre>
+</div>
+</div>
+<p>Apart from these “recommended” packages, there is a great - and ever increasing - number of user-written packages that satisfy various programming needs. Some packages contain functions that are particularly useful for social scientists. Sometimes a number of packages that contain complementary functionality and are designed to work well together are brought under one <em>meta-package</em>, which allows for all those packages to be installed and loaded at once. The most popular such meta-package is the <code>{tidyverse}</code>, which includes such packages as <code>{dplyr}</code> (for data manipulation), <code>{readr}</code> (for reading in rectangular data like <code>.csv</code> files), <code>{tidyr}</code> (for cleaning datasets), <code>{stringr}</code> (for working with “strings”, that is, textual data), <code>{forcats}</code> (for managing “factors”, that is, categorical variables) or <code>{ggplot2}</code> (for data visualisation), among [several others](https://www.tidyverse.org/packages/.</p>
+<p>The <code>{tidyverse}</code> packages have been developed around a coding philosophy that is very different from that of “base R”. It is sometimes referred to as a special “dialect” of the <code>R</code> language and has greatly contributed to popularising <code>R</code> and making it more easily available to practising social scientists who do not have a programming background, by designing code whose “grammar” is somewhat closer to that of “human” languages such as English. This is generally thought to lower the entry barriers to <code>R</code> for new users, although <a href="https://github.com/matloff/TidyverseSkeptic">there isn’t a clear consensus on that</a>.</p>
+<p>Another recently developed meta-package, which was specifically designed with non-programmer social scientists in mind, is the <code>{easystats}</code> bundle. We will be relying on <code>{easystats}</code> packages quite a lot in this module, as they provide a very coherent set of functions that improve on the <code>{tidyverse}</code>.</p>
+<p>Both of these meta-packages and thousands of other packages are available from the <em>Comprehensive R Archive Network</em> (CRAN). Many more packages are distributed as repositories on code-sharing platforms such as <em><a href="https://github.com/">GitHub</a></em> or <em><a href="https://r-universe.dev/search/">R Universe</a></em>.</p>
+<p>Packages made available on CRAN can be installed using the command <code>install.packages(&quot;packagename&quot;)</code>. Once the package/library is installed (i.e. it is sitting somewhere on your computer), we can then <em>load</em> functions from that package using the <code>::</code> operator (e.g. <code>package::function()</code>), or we can make all the functions from a package available by <em>attaching</em> that package with the <code>library()</code> function (e.g. <code>library(package)</code>).</p>
 <p>So using a package/library is a two-stage process. We:</p>
 <ol type="1">
-<li><strong>Install</strong> the package/library onto your computer (from the internet)</li>
-<li><strong>Load</strong> the package/library into your current session using the library command.</li>
+<li><pre><code> **Install** the package/library onto your computer (from CRAN or another repository)</code></pre>
+2.a. <strong>Load</strong> functions from the package as you use them, or: 2.b. <strong>Attach</strong> the whole package to R’s search path, making all functions available to use by name</li>
 </ol>
-<p>Let’s start by installing the ‘tidyverse’ package, and then load it:</p>
+<p>Let’s start by installing the <code>tidyverse</code> meta-package, and then attach it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)  <span class="do">## this command installs packages from CRAN; note the quotation marks around the package name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)  <span class="do">## this command installs packages from CRAN; note the quotation marks around the package name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>You can check the suite of packages that are loaded when you load the <code>Tidyverse</code> library using a command from the <code>tidyverse</code> itself:</p>
+<p>You can check the suite of packages that are available when you attach the <code>tidyverse</code> library using a command from the <code>tidyverse</code> itself:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidyverse_packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidyverse_packages</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="discuss">
 <p><strong>Question</strong></p>
 <p>Why do you think we got an error message when we tried to run the above command?</p>
 </div>
-<p>Because <code>tidyverse_packages()</code> is itself a function from the <code>tidyverse</code>, in order to use that function we need not only to install the <code>tidyverse</code> but also to make its functions available. In other words, we did not yet <em>load</em> the <code>tidyverse</code> for use in our R session, we only just installed it on our computers.</p>
-<p>If we don’t want to load a package that we have downloaded - because maybe we only want to use a single function once and we don’t want to burden our computer’s memory, we can state explicitly which package the function is from in the following way:</p>
+<p>Because <code>tidyverse_packages()</code> is itself a function from the <code>tidyverse</code>, in order to use that function we need not only to install the <code>tidyverse</code> but also to make its functions available. In other words, we did not yet <em>attach</em> the <code>tidyverse</code> for use in our R session, we only just installed it on our computers.</p>
+<p>If we don’t want to attach a package that we have downloaded - because maybe we only want to use a single function once and we don’t want to burden our computer’s memory, we can load explicitly given functions from a package in the following way:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tidyverse<span class="sc">::</span><span class="fu">tidyverse_packages</span>()  <span class="co"># Here we state the package followed by two colons, then followed by the function we want</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>tidyverse<span class="sc">::</span><span class="fu">tidyverse_packages</span>()  <span class="co"># Here we state the package followed by two colons, then followed by the function we want</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>But in many cases we do want to use several functions at various points in an analysis session, so it is usually useful to <em>load</em> the entire package or set of packages:</p>
+<p>But in many cases we do want to use several functions at various points in an analysis session, so it is often useful to <em>attach</em> the entire package or set of packages:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now we can use functions from that package without having to explicitly state the name of the package. We can still state the name explicitly, and that may be useful for readers of our code to understand what package a function come from. Also, it may happen that different packages have similarly named functions, and if all those packages are loaded, then the functions from a package loaded later will override that in the package loaded earlier. <code>R</code> will note in a comment whether any functions from a package are <strong>masked</strong> by another, so it’s worth paying attention to the comments and warnings printed by <code>R</code> when we load packages.</p>
-<p>There are also convenience tools - e.g. the <code>pacman</code> package - that make it easier to load several packages at once, while at the same time downloading the package if it has not yet been downloaded on our computer.</p>
-<p>For example, we can download a number of packages with the command below:</p>
+<p>Now we can use functions from that package without having to explicitly state the name of the package. We can still state the name explicitly, and that may be useful for readers of our code to understand what package a function come from. Also, it may happen that different packages have similarly named functions, and if all those packages are attached, then the functions from a package attached later will override that in the package attached earlier. <code>R</code> will note in a comment whether any functions from a package are <strong>masked</strong> by another, so it’s worth paying attention to the comments and warnings printed by <code>R</code> when we attach packages.</p>
+<section id="installing-and-attaching-packages" class="level3">
+<h3 class="anchored" data-anchor-id="installing-and-attaching-packages">Installing and attaching packages</h3>
+<p>Both <code>install.packages()</code> and <code>library()</code> are <em>base R</em> functions, but there are several other user-written packages that provide additional functionality to make it easier and more efficient to install, attach and manage packages. For example, the <code>pacman</code> package contains a function <code>p_load()</code> that allows us to attach several packages at once and install them from CRAN on the fly if they are not yet installed. The sister function <code>p_load_gh()</code> does the same for packages not published on CRAN but stored on personal repositories on GitHub. The <code>{librarian}</code> package does the same with the <code>shelf()</code> function, which installs missing packages from CRAN as well as GitHub.</p>
+<p>For example, we can download and attach a number of packages in one go with the command below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install &#39;pacman&#39; if not yet installed:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>) </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Then load/install other packages using &#39;pacman&#39;:</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  tidyverse,    <span class="co"># general data management tools (&#39;dplyr&#39;, etc.)</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  easystats,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  gtsummary,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  ggformula</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, install {librarian} itself if not yet installed:</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;librarian&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;librarian&quot;</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: librarian</code></pre>
 </div>
-<p>These are some useful packages that we will be using in this module. You can read more about the packages we have just installed here:</p>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Then attach/install other packages using `librarian::shelf()`:</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  tidyverse,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  easystats,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  sjlabelled,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  gtsummary,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  ggformula</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These are some useful packages that we will be using in this module. You can read more about the (meta)packages we have just installed here:</p>
 <ul>
 <li><a href="https://www.tidyverse.org/"><code>tidyverse</code></a></li>
 <li><a href="https://easystats.github.io/easystats/"><code>easystats</code></a></li>
+<li><a href="https://strengejacke.github.io/sjlabelled/articles/labelleddata.html"><code>sjlabelled</code></a></li>
 <li><a href="https://www.danieldsjoberg.com/gtsummary/index.html"><code>gtsummary</code></a></li>
 <li><a href="https://www.mosaic-web.org/ggformula/index.html"><code>ggformula</code></a></li>
 </ul>
+</section>
 </section>
 <section id="about-the-tidyverse" class="level2">
 <h2 class="anchored" data-anchor-id="about-the-tidyverse">About the <code>Tidyverse</code></h2>
@@ -4032,6 +4106,104 @@ Tip
 <li>The result is a new data frame</li>
 </ul>
 <p>For more info, check <a href="https://datacarpentry.org/r-socialsci/03-dplyr-tidyr/index.html">R for Social Scientists</a></p>
+<p>Most of the <code>{dplyr}</code> verbs perform tasks that can also be done in <em>base R</em>, but they provide more convenience. The table below lists a rough equivalence between <code>dplyr</code> and <em>base R</em> functionality:</p>
+<table class="table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>dplyr</th>
+<th>base</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>arrange(df, x)</code></td>
+<td><code>df[order(x), , drop = FALSE]</code></td>
+</tr>
+<tr class="even">
+<td><code>distinct(df, x)</code></td>
+<td><code>df[!duplicated(x), , drop = FALSE]</code>, <code>unique()</code></td>
+</tr>
+<tr class="odd">
+<td><code>filter(df, x)</code></td>
+<td><code>df[which(x), , drop = FALSE]</code>, <code>subset()</code></td>
+</tr>
+<tr class="even">
+<td><code>mutate(df, z = x + y)</code></td>
+<td><code>df$z &lt;- df$x + df$y</code>, <code>transform()</code></td>
+</tr>
+<tr class="odd">
+<td><code>pull(df, 1)</code></td>
+<td><code>df[[1]]</code></td>
+</tr>
+<tr class="even">
+<td><code>pull(df, x)</code></td>
+<td><code>df$x</code></td>
+</tr>
+<tr class="odd">
+<td><code>rename(df, y = x)</code></td>
+<td><code>names(df)[names(df) == &quot;x&quot;] &lt;- &quot;y&quot;</code></td>
+</tr>
+<tr class="even">
+<td><code>relocate(df, y)</code></td>
+<td><code>df[union(&quot;y&quot;, names(df))]</code></td>
+</tr>
+<tr class="odd">
+<td><code>select(df, x, y)</code></td>
+<td><code>df[c(&quot;x&quot;, &quot;y&quot;)]</code>, <code>subset()</code></td>
+</tr>
+<tr class="even">
+<td><code>select(df, starts_with(&quot;x&quot;))</code></td>
+<td><code>df[grepl(&quot;^x&quot;, names(df))]</code></td>
+</tr>
+<tr class="odd">
+<td><code>summarise(df, mean(x))</code></td>
+<td><code>mean(df$x)</code>, <code>tapply()</code>, <code>aggregate()</code>, <code>by()</code></td>
+</tr>
+<tr class="even">
+<td><code>slice(df, c(1, 2, 5))</code></td>
+<td><code>df[c(1, 2, 5), , drop = FALSE]</code></td>
+</tr>
+</tbody>
+</table>
+<p>The above functions allow us to manage single data-frames. A set of other functions (sometimes called “two-table verbs”) make it possible to combine columns, rows, or both, from two or more data-frames. In <em>base-R</em>, much of this can be achieved with the <code>merge()</code> function, while in <code>dplyr</code> the <code>join()</code> function makes this possible, extending some further functionality that is not easily available in <em>base-R</em>. The table below lists these <code>dplyr</code> functions and their <em>base-R</em> equivalents:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>dplyr</th>
+<th>base</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>inner_join(df1, df2)</code></td>
+<td><code>merge(df1, df2)</code></td>
+</tr>
+<tr class="even">
+<td><code>left_join(df1, df2)</code></td>
+<td><code>merge(df1, df2, all.x = TRUE)</code></td>
+</tr>
+<tr class="odd">
+<td><code>right_join(df1, df2)</code></td>
+<td><code>merge(df1, df2, all.y = TRUE)</code></td>
+</tr>
+<tr class="even">
+<td><code>full_join(df1, df2)</code></td>
+<td><code>merge(df1, df2, all = TRUE)</code></td>
+</tr>
+<tr class="odd">
+<td><code>semi_join(df1, df2)</code></td>
+<td><code>df1[df1$x %in% df2$x, , drop = FALSE]</code></td>
+</tr>
+<tr class="even">
+<td><code>anti_join(df1, df2)</code></td>
+<td><code>df1[!df1$x %in% df2$x, , drop = FALSE]</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="the-forward-pipe-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="the-forward-pipe-workflow">The forward-pipe (<code>%&gt;%</code>/<code>|&gt;</code>) workflow</h3>
